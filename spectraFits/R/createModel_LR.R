@@ -4,7 +4,7 @@ library("PhenologyBayesModeling")
 
 createModel.linReg <- function(data){
   nchain <- 5
-  data$n <- length(data$mSR)
+  data$n <- length(data$y)
   data$min.b0 <- 0
   data$max.b0 <- 100
   data$min.b1 <- -1
