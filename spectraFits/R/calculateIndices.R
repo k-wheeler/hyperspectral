@@ -10,10 +10,10 @@ calRatio <- function(dat,ref1,ref2){
   return(R1/R2)
 }
 calPSRI <- function(dat){
-  R680 <- dat[dat$wvl==680,"ref"]
+  R678 <- dat[dat$wvl==678,"ref"]
   R500 <- dat[dat$wvl==500,"ref"]
   R750 <- dat[dat$wvl==750,"ref"]
-  return((R680-R500)/R750)
+  return((R678-R500)/R750)
 }
 calmSR <- function(dat){
   R445 <- dat[dat$wvl==445,"ref"]
@@ -61,4 +61,11 @@ calNDVI_M <- function(dat){
   NIR <- mean(dat[dat$wvl<877 & dat$wvl>840,"ref"])
   R <- mean(dat[dat$wvl<671 & dat$wvl>619,"ref"])
   return((NIR-R)/(NIR+R))
+}
+
+calSIPI <- function(dat){
+  R800 <- dat[dat$wvl==800,"ref"]
+  R445 <- dat[dat$wvl==445,"ref"]
+  R680 <- dat[dat$wvl==680,"ref"]
+  return((R800-R445)/(R800-R680))
 }
