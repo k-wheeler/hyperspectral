@@ -107,3 +107,4 @@ for(i in 1:length(fitFiles)){
   points(ind.dat$x,ind.dat$y)
   lines(xseq,ci[2,],col="red")
 }
+dev.off()
