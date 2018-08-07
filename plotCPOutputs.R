@@ -14,7 +14,6 @@ library("PhenologyBayesModeling")
 pdf("CP_Fits.pdf",width=45,height=45)
 par(mfrow=c(5,5))
 fitFiles <- dir(pattern="CP_varBurn.RData")
-xseq <- 
 for(i in 1:length(fitFiles)){
   load(fitFiles[i])
   out.mat <- as.matrix(var.Burn)
