@@ -117,7 +117,7 @@ for(i in 1:length(fitFiles)){
   }
   plot(dat$x,dat$y,main=ind)
   ciEnvelope(xseq,ci[1,],ci[3,],col="lightBlue")
-  points(ind.dat$x,ind.dat$y)
+  points(dat$x,dat$y)
   lines(xseq,ci[2,],col="red")
 }
 dev.off()
