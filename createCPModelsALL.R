@@ -15,7 +15,7 @@ n.cores <- 2
 #register the cores.
 registerDoParallel(cores=n.cores)
 i=1
-trees <- c("BI1","BI2","BI3")
+trees <- c("BI1","BI2","BI3","BI4","BI5","BE1","BE2","BE3","BE4","BE5","PO1","PO2","PO3","PO4","PO5")
 year=2016
 createFits <- function(trees,year){
   output <- foreach (i=1:length(trees))%dopar%{
