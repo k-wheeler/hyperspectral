@@ -115,7 +115,7 @@ for(i in 1:length(fitFiles)){
   else{
     print("ERROR")
   }
-  plot(dat$x,dat$y,main=paste(tree,ind,sep=" ")
+  plot(dat$x,dat$y,main=paste(tree,ind,sep=" "))
   ciEnvelope(xseq,ci[1,],ci[3,],col="lightBlue")
   points(dat$x,dat$y)
   lines(xseq,ci[2,],col="red")
