@@ -8,6 +8,18 @@ ciEnvelope <- function(x,ylo,yhi,...){
                                       ylo[1])), border = NA,...) 
 }
 
+phenoCP <- function(muL,k,a,xseq,b){
+  k <- round(k,digits=0)
+  print(k)
+  bk <- which(round(xseq,digits=0)==k)
+  print(bk)
+  left <- rep(muL,length(xseq[1:bk]))
+  right.xseq <- xseq[(bk+1):length(xseq)]
+  right <- -a*exp(b*(right.xseq-k))+muL+a
+  #print(length(c(left,right)))
+  return(c(left,right))
+}
+
 library("rjags")
 library("runjags")
 library("PhenologyBayesModeling")
