@@ -24,6 +24,8 @@ for(i in 1:length(fitFiles)){
   tree <- substr(fitFiles[i],1,3)
   yr <- substr(fitFiles[i],5,8)
   ind <- strsplit(fitFiles[i],split="_")[[1]][3]
+  load(paste(tree,"_",yr,"_Data.RData",sep=""))
+  xseq <- seq(min(data$DOY),max(data$DOY),1)
   
   ycred <- matrix(0,nrow=10000,ncol=length(xseq))
   for(g in 1:10000){
