@@ -95,7 +95,6 @@ createModel.CP <- function(data,index){
   y[i] ~ dnorm(mu[i],prec)  ##data model
   }
   }
-
   "
   j.model   <- jags.model(file = textConnection(CP.model),
                           data = data,
