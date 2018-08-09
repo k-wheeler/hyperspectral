@@ -20,6 +20,7 @@ pdf("LR_Fits.pdf",width=45,height=45)
 par(mfrow=c(5,5))
 fitFiles <- dir(pattern="LR_varBurn.RData")
 for(i in 1:length(fitFiles)){
+  print(fitFiles[i])
   load(fitFiles[i])
   out.mat <- as.matrix(var.Burn)
   beta0 <- out.mat[,1]
@@ -34,7 +35,7 @@ for(i in 1:length(fitFiles)){
   ycred <- matrix(0,nrow=10000,ncol=length(xseq))
   ypred <- matrix(0,nrow=10000,ncol=length(xseq))
   for(g in 1:10000){
-    Ey <- phenoLR(muL=muL[g],a=a[g],b=b[g],k=k[g],xseq=xseq)
+    Ey <- phenoLR(beta0=beta0[g],beta1=beta1[g],xseq=xseq)
     ycred[g,] <- Ey
     ypred[g,] <- rnorm(length(xseq),Ey,sqrt(1/prec[g]))
   }
