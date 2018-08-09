@@ -7,8 +7,8 @@ createModel.LR <- function(data){
   data$n <- length(data$y)
   data$min.b0 <- -100
   data$max.b0 <- 100
-  data$min.b1 <- -1
-  data$max.b1 <- 0
+  data$min.b1 <- -100
+  data$max.b1 <- 100
   data$s1 <- 0.001
   data$s2 <- 0.00001
   inits <- list()
