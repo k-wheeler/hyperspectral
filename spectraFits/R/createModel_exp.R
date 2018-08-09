@@ -16,10 +16,16 @@ createModel.Exp <- function(data,index){
   if(index=="PSRI" || index=="RGI"){
     data$min.a <- 0
     data$max.a <- 100
+    for(i in 1:nchain){
+      inits[[i]] <- list(a=rnorm(1,0.34,0.005),b=rnorm(1,0.02,0.03),muL=rnorm(1,mean(data$y[1:10]),0.05),k=rnorm(1,285,10))
+    }
   }
   else{
     data$min.a <- -100
     data$max.a <- 0
+    for(i in 1:nchain){
+      inits[[i]] <- list(a=rnorm(1,-0.34,0.005),b=rnorm(1,0.02,0.005),c=rnorm(1,mean(data$y[1:5]),0.05))
+    }
   }
   data$min.b <- -100
   data$max.b <- 100
@@ -85,9 +91,7 @@ createModel.Exp <- function(data,index){
 
   inits <- list()
 
-  for(i in 1:nchain){
-    inits[[i]] <- list(a=rnorm(1,-0.34,0.005),b=rnorm(1,0.02,0.005),c=rnorm(1,mean(data$y[1:5]),0.05))
-  }
+
 
   Exp.model <- "
   model{
