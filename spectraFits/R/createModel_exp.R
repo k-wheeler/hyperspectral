@@ -91,10 +91,6 @@ createModel.Exp <- function(data,index){
     return()
   }
 
-  inits <- list()
-
-
-
   Exp.model <- "
   model{
   ##priors
