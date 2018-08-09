@@ -34,7 +34,7 @@ for(i in 1:length(fitFiles)){
   ycred <- matrix(0,nrow=10000,ncol=length(xseq))
   ypred <- matrix(0,nrow=10000,ncol=length(xseq))
   for(g in 1:10000){
-    Ey <- phenoCP(muL=muL[g],a=a[g],b=b[g],k=k[g],xseq=xseq)
+    Ey <- phenoLR(muL=muL[g],a=a[g],b=b[g],k=k[g],xseq=xseq)
     ycred[g,] <- Ey
     ypred[g,] <- rnorm(length(xseq),Ey,sqrt(1/prec[g]))
   }
