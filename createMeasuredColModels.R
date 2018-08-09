@@ -15,6 +15,7 @@ registerDoParallel(cores=n.cores)
 
 indices <- c("chl","car","NDVI_H","PRI","NDRE","GNDVI","GM1","RVI1","RVI2","LIC","CTR","GM2","VGM","PSRI","mSR","mND","DD","RGI","RE","NDVI_M","SIPI")
 num <- 1
+i=1
 foreach(i=1:length(indices)) %dopar%{
   #treeFiles <- intersect(dir(path="measuredRData",pattern=paste(indices[i],"_Data.RData",sep="")),dir(path="measuredRData",pattern=treeSpecies))
   treeFiles <- dir(path="measuredRData",pattern=paste(indices[i],"_Data.RData",sep=""))
