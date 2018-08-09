@@ -29,6 +29,10 @@ for(i in 1:length(fitFiles)){
   tree <- substr(fitFiles[i],1,3)
   yr <- substr(fitFiles[i],5,8)
   ind <- strsplit(fitFiles[i],split="_")[[1]][3]
+  if(ind=="NDVI"){
+    ind <- paste(strsplit(fitFiles[i],split="_")[[1]][3],strsplit(fitFiles[i],split="_")[[1]][4],sep="_")
+  }
+  print(ind)
   load(paste(tree,"_",yr,"_Data.RData",sep=""))
   xseq <- seq(min(data$DOY),max(data$DOY),1)
   
