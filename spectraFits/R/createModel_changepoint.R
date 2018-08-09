@@ -9,10 +9,16 @@ createModel.CP <- function(data,index){
   print(data$n)
   data$mean.k <- 290
   data$p.k <- 10
-  data$mean.a <- 0.01
-  data$p.a <- 1/(0.005)
-  data$mean.b <- 0.12
-  data$p.b <- 1/(0.05**2)
+  if(index=="PSRI" || index=="RGI"){
+    data$min.a <- 0
+    data$max.a <- 100
+  }
+  else{
+    data$min.a <- -100
+    data$max.a <- 0
+  }
+  data$min.b <- -100
+  data$max.b <- 100
   data$s1 <- 0.7#0.001
   data$s2 <- 0.3#0.00001
   topHalf <- c("Chl","NDVI_H","NDRE","mND705","GNDVI","NDVI_M","LIC","Car")
@@ -82,9 +88,9 @@ createModel.CP <- function(data,index){
   CP.model <- "
   model{
   ##priors
-  a ~ dnorm(mean.a,p.a)
+  a ~ dunif(min.a,max.a)
   k ~ dnorm(mean.k,p.k)
-  b ~ dnorm(mean.b,p.b)
+  b ~ dunif(min.b,max.b)
   prec ~ dgamma(s1,s2)
   muL ~ dnorm(mean.muL,p.muL)
 

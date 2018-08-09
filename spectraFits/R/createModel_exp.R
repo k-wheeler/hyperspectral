@@ -13,9 +13,15 @@ createModel.Exp <- function(data,index){
   # data$p.a <- 1/(0.1**2)
   # data$mean.b <- 0.02
   # data$p.b <- 1/(0.005**2)
-  data$min.a <- -100
-  data$max.a <- 0
-  data$min.b <- 0
+  if(index=="PSRI" || index=="RGI"){
+    data$min.a <- 0
+    data$max.a <- 100
+  }
+  else{
+    data$min.a <- -100
+    data$max.a <- 0
+  }
+  data$min.b <- -100
   data$max.b <- 100
   data$s1 <- 0.7#0.001
   data$s2 <- 0.3#0.00001
