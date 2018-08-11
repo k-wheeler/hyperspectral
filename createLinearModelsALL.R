@@ -23,7 +23,7 @@ createFits <- function(trees,year){
     
     ##mSR
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$mSR
     outFileName <- paste(trees[i],"_",year,"_mSR_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
@@ -33,7 +33,7 @@ createFits <- function(trees,year){
     }
     ##chl
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$chl
     ind <- "chl"
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
@@ -45,7 +45,7 @@ createFits <- function(trees,year){
     
     ind <- "GM2" #######
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$GM2 #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
@@ -56,7 +56,7 @@ createFits <- function(trees,year){
     
     ind <- "mND" #######
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$mND #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
@@ -67,7 +67,7 @@ createFits <- function(trees,year){
     
     ind <- "NDVI_M" #######
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$NDVI_M #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
@@ -78,7 +78,7 @@ createFits <- function(trees,year){
     
     ind <- "NDRE" #######
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$NDRE #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
@@ -88,7 +88,7 @@ createFits <- function(trees,year){
     }
     ind <- "VGM" #######
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$VGM #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
@@ -99,7 +99,7 @@ createFits <- function(trees,year){
     
     ind <- "PSRI" #######
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$PSRI #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
@@ -110,7 +110,7 @@ createFits <- function(trees,year){
     
     ind <- "GNDVI" #######
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$GNDVI #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
@@ -121,7 +121,7 @@ createFits <- function(trees,year){
     
     ind <- "RGI" #######
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$RGI #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
@@ -132,7 +132,7 @@ createFits <- function(trees,year){
     
     ind <- "DD" #######
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$DD #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
@@ -143,7 +143,7 @@ createFits <- function(trees,year){
     
     ind <- "PRI" #######
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$PRI #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
@@ -154,7 +154,7 @@ createFits <- function(trees,year){
     
     ind <- "GM1" #######
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$GM1 #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
@@ -164,7 +164,7 @@ createFits <- function(trees,year){
     }
     ind <- "SIPI" #######
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$SIPI #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
@@ -187,7 +187,7 @@ createFits <- function(trees,year){
     
     ind <- "car" #######
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$car #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
@@ -198,7 +198,7 @@ createFits <- function(trees,year){
     
     ind <- "NDVI_H" #######
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$NDVI_H #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
@@ -209,7 +209,7 @@ createFits <- function(trees,year){
     
     ind <- "RVI1" #######
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$RVI1 #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
@@ -220,7 +220,7 @@ createFits <- function(trees,year){
     
     ind <- "RVI2" #######
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$RVI2 #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
@@ -231,7 +231,7 @@ createFits <- function(trees,year){
     
     ind <- "LIC" #######
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$LIC #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
@@ -242,7 +242,7 @@ createFits <- function(trees,year){
     
     ind <- "CTR" #######
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$CTR #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
@@ -253,7 +253,7 @@ createFits <- function(trees,year){
     
     ind <- "DCN" #######
     dat <- list()
-    dat$DOY <- data$DOY
+    dat$x <- data$DOY
     dat$y <- data$DCN #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
