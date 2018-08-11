@@ -14,7 +14,9 @@ n.cores <- 2
 
 #register the cores.
 registerDoParallel(cores=n.cores)
-
+i=1
+trees <- c("BI1","BI2","BI3")
+year=2016
 createFits <- function(trees,year){
   output <- foreach (i=1:length(trees))%dopar%{
     load(paste(trees[i],"_",year,"_Data.RData",sep=""))
@@ -160,11 +162,10 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
-    
-    ind <- "car" #######
+    ind <- "SIPI" #######
     dat <- list()
     dat$DOY <- data$DOY
-    dat$y <- data$car #######
+    dat$y <- data$SIPI #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
       j.model <- createModel.linReg(data=dat)
@@ -176,6 +177,17 @@ createFits <- function(trees,year){
     dat <- list()
     dat$DOY <- data$DOY
     dat$y <- data$RE #######
+    outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
+    if(!file.exists(outFileName)){
+      j.model <- createModel.linReg(data=dat)
+      var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
+      save(var.Burn,file=outFileName)
+    }
+    
+    ind <- "car" #######
+    dat <- list()
+    dat$DOY <- data$DOY
+    dat$y <- data$car #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
       j.model <- createModel.linReg(data=dat)
