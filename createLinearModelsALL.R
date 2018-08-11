@@ -27,7 +27,7 @@ createFits <- function(trees,year){
     dat$y <- data$mSR
     outFileName <- paste(trees[i],"_",year,"_mSR_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
@@ -38,7 +38,7 @@ createFits <- function(trees,year){
     ind <- "chl"
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
@@ -49,7 +49,7 @@ createFits <- function(trees,year){
     dat$y <- data$GM2 #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
@@ -60,7 +60,7 @@ createFits <- function(trees,year){
     dat$y <- data$mND #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
@@ -71,7 +71,7 @@ createFits <- function(trees,year){
     dat$y <- data$NDVI_M #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
@@ -82,7 +82,7 @@ createFits <- function(trees,year){
     dat$y <- data$NDRE #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
@@ -92,7 +92,7 @@ createFits <- function(trees,year){
     dat$y <- data$VGM #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
@@ -103,7 +103,7 @@ createFits <- function(trees,year){
     dat$y <- data$PSRI #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
@@ -114,7 +114,7 @@ createFits <- function(trees,year){
     dat$y <- data$GNDVI #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
@@ -125,7 +125,7 @@ createFits <- function(trees,year){
     dat$y <- data$RGI #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
@@ -136,7 +136,7 @@ createFits <- function(trees,year){
     dat$y <- data$DD #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
@@ -147,7 +147,7 @@ createFits <- function(trees,year){
     dat$y <- data$PRI #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
@@ -158,7 +158,7 @@ createFits <- function(trees,year){
     dat$y <- data$GM1 #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
@@ -168,7 +168,7 @@ createFits <- function(trees,year){
     dat$y <- data$SIPI #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       print("createdModel")
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
@@ -180,7 +180,7 @@ createFits <- function(trees,year){
     # dat$y <- data$RE #######
     # outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     # if(!file.exists(outFileName)){
-    #   j.model <- createModel.linReg(data=dat)
+    #   j.model <- createModel.LR(data=dat)
     #   var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
     #   save(var.Burn,file=outFileName)
     # }
@@ -191,7 +191,7 @@ createFits <- function(trees,year){
     dat$y <- data$car #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
@@ -202,7 +202,7 @@ createFits <- function(trees,year){
     dat$y <- data$NDVI_H #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
@@ -213,7 +213,7 @@ createFits <- function(trees,year){
     dat$y <- data$RVI1 #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
@@ -224,7 +224,7 @@ createFits <- function(trees,year){
     dat$y <- data$RVI2 #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
@@ -235,7 +235,7 @@ createFits <- function(trees,year){
     dat$y <- data$LIC #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
@@ -246,7 +246,7 @@ createFits <- function(trees,year){
     dat$y <- data$CTR #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
@@ -257,7 +257,7 @@ createFits <- function(trees,year){
     dat$y <- data$DCN #######
     outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
+      j.model <- createModel.LR(data=dat)
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
