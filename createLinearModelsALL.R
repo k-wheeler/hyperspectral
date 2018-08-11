@@ -173,16 +173,16 @@ createFits <- function(trees,year){
       save(var.Burn,file=outFileName)
     }
     
-    ind <- "RE" #######
-    dat <- list()
-    dat$DOY <- data$DOY
-    dat$y <- data$RE #######
-    outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
-    if(!file.exists(outFileName)){
-      j.model <- createModel.linReg(data=dat)
-      var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
-      save(var.Burn,file=outFileName)
-    }
+    # ind <- "RE" #######
+    # dat <- list()
+    # dat$DOY <- data$DOY
+    # dat$y <- data$RE #######
+    # outFileName <- paste(trees[i],"_",year,"_",ind,"_varBurn.RData",sep="")
+    # if(!file.exists(outFileName)){
+    #   j.model <- createModel.linReg(data=dat)
+    #   var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
+    #   save(var.Burn,file=outFileName)
+    # }
     
     ind <- "car" #######
     dat <- list()
