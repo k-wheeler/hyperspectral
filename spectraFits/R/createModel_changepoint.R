@@ -7,8 +7,8 @@ createModel.CP <- function(data,index){
   nchain <- 5
   data$n <- length(data$y)
   print(data$n)
-  data$mean.k <- 290
-  data$p.k <- 10
+  data$mean.k <- 274
+  data$p.k <- 1/(20**2)
 
   inits <- list()
 
