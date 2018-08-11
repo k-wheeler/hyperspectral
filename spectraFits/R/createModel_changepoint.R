@@ -30,7 +30,7 @@ createModel.CP <- function(data,index){
   data$max.b <- 100
   data$s1 <- 0.7#0.001
   data$s2 <- 0.3#0.00001
-  topHalf <- c("Chl","NDVI_H","NDRE","mND705","GNDVI","NDVI_M","LIC","Car")
+  topHalf <- c("chl","NDVI_H","NDRE","mND705","GNDVI","NDVI_M","LIC","Car")
   if(index %in% topHalf){
     data$mean.muL <- 0.75
     data$p.muL <- 1/(0.1**2)
