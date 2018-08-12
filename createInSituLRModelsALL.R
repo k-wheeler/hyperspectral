@@ -248,7 +248,7 @@ createFits <- function(trees,year){
     outFileName <- paste(trees[i],"_",year,"_",ind,"_LR_varBurn.RData",sep="")
     if(!file.exists(outFileName)){
       j.model <- createModel.LR(data=dat)
-      var.Burn <- runMCMC_Model(j.model=j.model,variableNames = cc("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
+      var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
     print(ind)
