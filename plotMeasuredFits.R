@@ -21,7 +21,7 @@ indices <- c("chl","car","NDVI_H","PRI","NDRE","GNDVI","GM1","RVI1","RVI2","LIC"
 for(i in 1:length(indices)){
   print(indices[i])
   load(paste("measuredRData/",indices[i],"_","allMeasured.RData",sep=""))
-  load(paste("measuredRData/",indices[i],"_measured_varBurn.RData",sep=""))
+  load(paste("measuredRData/",indices[i],"_all_measured_varBurn.RData",sep=""))
   out.mat <- as.matrix(var.Burn)
   beta0 <- out.mat[,1]
   beta1 <- out.mat[,2]
