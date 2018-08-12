@@ -16,7 +16,8 @@ ciEnvelope <- function(x,ylo,yhi,...){
 phenoLR <- function(beta0,beta1,xseq){
   return(beta0+beta1*xseq)
 }
-pdf("Measured_Fits.pdf",width=12,height=12)
+pdf("Measured_Fits.pdf",width=60,height=40)
+par(mfrow=c(5,9))
 indices <- c("chl","car","NDVI_H","PRI","NDRE","GNDVI","GM1","RVI1","RVI2","LIC","CTR","GM2","VGM","PSRI","mSR","mND","DD","RGI","RE","NDVI_M","SIPI")
 for(i in 1:length(indices)){
   print(indices[i])
@@ -38,11 +39,16 @@ for(i in 1:length(indices)){
   }
   ci <- apply(ycred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
   pi <- apply(ypred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
-  plot(data$x,data$y,main=paste("All measured",indices[i],sep=" "),ylab="N",xlab=indices[i])
+  plot(data$x,data$y,main=paste("All measured",indices[i],sep=" "),ylab="N",xlab=indices[i],pch=20)
   ciEnvelope(xseq,pi[1,],pi[3,],col="blue")
   ciEnvelope(xseq,ci[1,],ci[3,],col="lightBlue")
-  points(data$x,data$y)
+  points(data$x,data$y,pch=20)
   lines(xseq,ci[2,],col="red")
+  for(i in 1:length(data$x)){
+    xs <- seq((data$x[i]-1.96*sqrt(1/data$obs.prec[i])),(data$x[i]+1.96*sqrt(1/data$obs.prec[i])),0.001)
+    ys <- rep(data$y[i],length(xs))
+    lines(xs,ys,col="black")
+  }
   
   treeSpecies="PO"
   load(paste("measuredRData/",indices[i],"_",treeSpecies,"_allMeasured.RData",sep=""))
@@ -63,11 +69,16 @@ for(i in 1:length(indices)){
   }
   ci <- apply(ycred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
   pi <- apply(ypred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
-  plot(data$x,data$y,main=paste("Poplar measured",indices[i],sep=" "),ylab="N",xlab=indices[i])
+  plot(data$x,data$y,main=paste("Poplar measured",indices[i],sep=" "),ylab="N",xlab=indices[i],pch=20)
   ciEnvelope(xseq,pi[1,],pi[3,],col="blue")
   ciEnvelope(xseq,ci[1,],ci[3,],col="lightBlue")
-  points(data$x,data$y)
+  points(data$x,data$y,pch=20)
   lines(xseq,ci[2,],col="red")
+  for(i in 1:length(data$x)){
+    xs <- seq((data$x[i]-1.96*sqrt(1/data$obs.prec[i])),(data$x[i]+1.96*sqrt(1/data$obs.prec[i])),0.001)
+    ys <- rep(data$y[i],length(xs))
+    lines(xs,ys,col="black")
+  }
   
   treeSpecies="BE"
   load(paste("measuredRData/",indices[i],"_",treeSpecies,"_allMeasured.RData",sep=""))
@@ -88,11 +99,16 @@ for(i in 1:length(indices)){
   }
   ci <- apply(ycred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
   pi <- apply(ypred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
-  plot(data$x,data$y,main=paste("Beech Measured",indices[i],sep=" "),ylab="N",xlab=indices[i])
+  plot(data$x,data$y,main=paste("Beech Measured",indices[i],sep=" "),ylab="N",xlab=indices[i],pch=20)
   ciEnvelope(xseq,pi[1,],pi[3,],col="blue")
   ciEnvelope(xseq,ci[1,],ci[3,],col="lightBlue")
-  points(data$x,data$y)
+  points(data$x,data$y,pch=20)
   lines(xseq,ci[2,],col="red")
+  for(i in 1:length(data$x)){
+    xs <- seq((data$x[i]-1.96*sqrt(1/data$obs.prec[i])),(data$x[i]+1.96*sqrt(1/data$obs.prec[i])),0.001)
+    ys <- rep(data$y[i],length(xs))
+    lines(xs,ys,col="black")
+  }
   
   treeSpecies="BI"
   load(paste("measuredRData/",indices[i],"_",treeSpecies,"_allMeasured.RData",sep=""))
@@ -113,11 +129,16 @@ for(i in 1:length(indices)){
   }
   ci <- apply(ycred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
   pi <- apply(ypred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
-  plot(data$x,data$y,main=paste("measured",indices[i],sep=" "),ylab="N",xlab=indices[i])
+  plot(data$x,data$y,main=paste("measured",indices[i],sep=" "),ylab="N",xlab=indices[i],pch=20)
   ciEnvelope(xseq,pi[1,],pi[3,],col="blue")
   ciEnvelope(xseq,ci[1,],ci[3,],col="lightBlue")
-  points(data$x,data$y)
+  points(data$x,data$y,pch=20)
   lines(xseq,ci[2,],col="red")
+  for(i in 1:length(data$x)){
+    xs <- seq((data$x[i]-1.96*sqrt(1/data$obs.prec[i])),(data$x[i]+1.96*sqrt(1/data$obs.prec[i])),0.001)
+    ys <- rep(data$y[i],length(xs))
+    lines(xs,ys,col="black")
+  }
   
   for(j in seq(1,5)){
     load(paste("measuredRData/",indices[i],"_col",j,"_measured_varBurn.RData",sep=""))
@@ -138,11 +159,16 @@ for(i in 1:length(indices)){
     }
     ci <- apply(ycred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
     pi <- apply(ypred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
-    plot(data$x,data$y,main=paste("Measured Collection",j,sep=" "),ylab="N",xlab=indices[i])
+    plot(data$x,data$y,main=paste("Measured Collection",j,sep=" "),ylab="N",xlab=indices[i],pch=20)
     ciEnvelope(xseq,pi[1,],pi[3,],col="blue")
     ciEnvelope(xseq,ci[1,],ci[3,],col="lightBlue")
-    points(data$x,data$y)
+    points(data$x,data$y,pch=20)
     lines(xseq,ci[2,],col="red")
+    for(i in 1:length(data$x)){
+      xs <- seq((data$x[i]-1.96*sqrt(1/data$obs.prec[i])),(data$x[i]+1.96*sqrt(1/data$obs.prec[i])),0.001)
+      ys <- rep(data$y[i],length(xs))
+      lines(xs,ys,col="black")
+    }
   }
  
 }
