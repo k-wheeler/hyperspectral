@@ -16,7 +16,8 @@ registerDoParallel(cores=n.cores)
 trees <- c("BI1","BI2","BI3","BI4","BI5","BE1","BE2","BE3","BE4","BE5","PO1","PO2","PO3","PO4","PO5")
 year=2016
 createFits <- function(trees,year){
-  output <- foreach (i=1:length(trees))%dopar%{
+  #output <- foreach (i=1:length(trees))%dopar%{
+  for(i in 1:length(trees)){ 
     load(paste(trees[i],"_",year,"_Data.RData",sep=""))
     
     ##mSR
@@ -51,7 +52,7 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
-    
+    print(ind)
     ind <- "mND" #######
     dat <- list()
     dat$x <- data$DOY
@@ -62,6 +63,7 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
+    print(ind)
     
     ind <- "NDVI_M" #######
     dat <- list()
@@ -73,7 +75,7 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
-    
+        print(ind)
     ind <- "NDRE" #######
     dat <- list()
     dat$x <- data$DOY
@@ -84,7 +86,7 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
-    
+        print(ind)
     ind <- "VGM" #######
     dat <- list()
     dat$x <- data$DOY
@@ -95,7 +97,7 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
-    
+        print(ind)
     ind <- "PSRI" #######
     dat <- list()
     dat$x <- data$DOY
@@ -106,7 +108,7 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
-    
+        print(ind)
     ind <- "GNDVI" #######
     dat <- list()
     dat$x <- data$DOY
@@ -117,7 +119,7 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
-    
+        print(ind)
     ind <- "RGI" #######
     dat <- list()
     dat$x <- data$DOY
@@ -128,7 +130,7 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
-    
+        print(ind)
     ind <- "DD" #######
     dat <- list()
     dat$x <- data$DOY
@@ -139,7 +141,7 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
-    
+        print(ind)
     ind <- "PRI" #######
     dat <- list()
     dat$x <- data$DOY
@@ -150,7 +152,7 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
-    
+        print(ind)
     ind <- "GM1" #######
     dat <- list()
     dat$x <- data$DOY
@@ -161,7 +163,7 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
-    
+        print(ind)
     ind <- "RE" #######
     dat <- list()
     dat$x <- data$DOY
@@ -172,7 +174,7 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
-    
+        print(ind)
     ind <- "NDVI_H" #######
     dat <- list()
     dat$x <- data$DOY
@@ -183,7 +185,7 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
-    
+        print(ind)
     ind <- "RVI1" #######
     dat <- list()
     dat$x <- data$DOY
@@ -194,7 +196,7 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
-    
+        print(ind)
     ind <- "RVI2" #######
     dat <- list()
     dat$x <- data$DOY
@@ -205,7 +207,7 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
-    
+        print(ind)
     ind <- "LIC" #######
     dat <- list()
     dat$x <- data$DOY
@@ -216,7 +218,7 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
-    
+        print(ind)
     ind <- "CTR" #######
     dat <- list()
     dat$x <- data$DOY
@@ -227,7 +229,7 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
-    
+        print(ind)
     ind <- "SIPI" #######
     dat <- list()
     dat$x <- data$DOY
@@ -238,6 +240,7 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
+    print(ind)
     ind <- "car" #######
     dat <- list()
     dat$x <- data$DOY
@@ -248,6 +251,7 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = cc("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
+    print(ind)
   }
 }
 trees <- c("BE1","BE2","BE3","BE4","BE5","PO1","PO2","PO3","PO4","PO5","BI1","BI2","BI3","BI4","BI5")
