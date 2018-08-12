@@ -30,6 +30,17 @@ createFits <- function(trees,year){
       var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
       save(var.Burn,file=outFileName)
     }
+    
+    ind <- "RE" #######
+    dat <- list()
+    dat$x <- data$DOY
+    dat$y <- data$RE #######
+    outFileName <- paste(trees[i],"_",year,"_",ind,"_LR_varBurn.RData",sep="")
+    if(!file.exists(outFileName)){
+      j.model <- createModel.LR(data=dat)
+      var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("beta0","beta1","prec"),baseNum=10000,iterSize=30000)
+      save(var.Burn,file=outFileName)
+    }
     ##chl
     dat <- list()
     dat$x <- data$DOY
