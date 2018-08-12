@@ -121,7 +121,7 @@ for(i in 1:length(indices)){
   
   for(j in seq(1,5)){
     load(paste("measuredRData/",indices[i],"_col",j,"_measured_varBurn.RData",sep=""))
-    load(paste("measuredRData/",indices[i],"_col",j,"_measured_Burn.RData",sep=""))
+    load(paste("measuredRData/",indices[i],"_col",j,"_measured_varBurn.RData",sep=""))
     out.mat <- as.matrix(var.Burn)
     beta0 <- out.mat[,1]
     beta1 <- out.mat[,2]
