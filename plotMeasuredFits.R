@@ -44,9 +44,9 @@ for(i in 1:length(indices)){
   ciEnvelope(xseq,ci[1,],ci[3,],col="lightBlue")
   points(data$x,data$y,pch=20)
   lines(xseq,ci[2,],col="red")
-  for(i in 1:length(data$x)){
-    xs <- seq((data$x[i]-1.96*sqrt(1/data$obs.prec[i])),(data$x[i]+1.96*sqrt(1/data$obs.prec[i])),0.001)
-    ys <- rep(data$y[i],length(xs))
+  for(p in 1:length(data$x)){
+    xs <- seq((data$x[p]-1.96*sqrt(1/data$obs.prec[p])),(data$x[p]+1.96*sqrt(1/data$obs.prec[p])),0.001)
+    ys <- rep(data$y[p],length(xs))
     lines(xs,ys,col="black")
   }
   
@@ -74,9 +74,9 @@ for(i in 1:length(indices)){
   ciEnvelope(xseq,ci[1,],ci[3,],col="lightBlue")
   points(data$x,data$y,pch=20)
   lines(xseq,ci[2,],col="red")
-  for(i in 1:length(data$x)){
-    xs <- seq((data$x[i]-1.96*sqrt(1/data$obs.prec[i])),(data$x[i]+1.96*sqrt(1/data$obs.prec[i])),0.001)
-    ys <- rep(data$y[i],length(xs))
+  for(p in 1:length(data$x)){
+    xs <- seq((data$x[p]-1.96*sqrt(1/data$obs.prec[p])),(data$x[p]+1.96*sqrt(1/data$obs.prec[p])),0.001)
+    ys <- rep(data$y[p],length(xs))
     lines(xs,ys,col="black")
   }
   
@@ -104,9 +104,9 @@ for(i in 1:length(indices)){
   ciEnvelope(xseq,ci[1,],ci[3,],col="lightBlue")
   points(data$x,data$y,pch=20)
   lines(xseq,ci[2,],col="red")
-  for(i in 1:length(data$x)){
-    xs <- seq((data$x[i]-1.96*sqrt(1/data$obs.prec[i])),(data$x[i]+1.96*sqrt(1/data$obs.prec[i])),0.001)
-    ys <- rep(data$y[i],length(xs))
+  for(p in 1:length(data$x)){
+    xs <- seq((data$x[p]-1.96*sqrt(1/data$obs.prec[p])),(data$x[p]+1.96*sqrt(1/data$obs.prec[p])),0.001)
+    ys <- rep(data$y[p],length(xs))
     lines(xs,ys,col="black")
   }
   
@@ -134,9 +134,9 @@ for(i in 1:length(indices)){
   ciEnvelope(xseq,ci[1,],ci[3,],col="lightBlue")
   points(data$x,data$y,pch=20)
   lines(xseq,ci[2,],col="red")
-  for(i in 1:length(data$x)){
-    xs <- seq((data$x[i]-1.96*sqrt(1/data$obs.prec[i])),(data$x[i]+1.96*sqrt(1/data$obs.prec[i])),0.001)
-    ys <- rep(data$y[i],length(xs))
+  for(p in 1:length(data$x)){
+    xs <- seq((data$x[p]-1.96*sqrt(1/data$obs.prec[p])),(data$x[p]+1.96*sqrt(1/data$obs.prec[p])),0.001)
+    ys <- rep(data$y[p],length(xs))
     lines(xs,ys,col="black")
   }
   
@@ -164,12 +164,13 @@ for(i in 1:length(indices)){
     ciEnvelope(xseq,ci[1,],ci[3,],col="lightBlue")
     points(data$x,data$y,pch=20)
     lines(xseq,ci[2,],col="red")
-    for(i in 1:length(data$x)){
-      xs <- seq((data$x[i]-1.96*sqrt(1/data$obs.prec[i])),(data$x[i]+1.96*sqrt(1/data$obs.prec[i])),0.001)
-      ys <- rep(data$y[i],length(xs))
+    for(p in 1:length(data$x)){
+      xs <- seq((data$x[p]-1.96*sqrt(1/data$obs.prec[p])),(data$x[p]+1.96*sqrt(1/data$obs.prec[p])),0.001)
+      ys <- rep(data$y[p],length(xs))
       lines(xs,ys,col="black")
     }
   }
  
+  
 }
 dev.off()
