@@ -2,6 +2,7 @@ library("rjags")
 library("runjags")
 library("PhenologyBayesModeling")
 
+
 ##' Create the credible interval envelope for plotting
 ##' 
 ##' @param x time range
@@ -115,10 +116,11 @@ for(i in 1:length(fitFiles)){
   else{
     print("ERROR")
   }
-  plot(dat$x,dat$y,main=paste(tree,ind,sep=" "))
+  plot(dat$x,dat$y,main=paste(tree,ind,sep=" "),pch=20)
   ciEnvelope(xseq,pi[1,],pi[3,],col="blue")
   ciEnvelope(xseq,ci[1,],ci[3,],col="lightBlue")
-  points(dat$x,dat$y)
+  points(dat$x,dat$y,pch=20)
   lines(xseq,ci[2,],col="red")
+  
 }
 dev.off()
