@@ -20,6 +20,39 @@ year=2016
 output <- foreach (i=1:length(trees))%dopar%{
   load(paste(trees[i],"_",year,"_Data.RData",sep=""))
   
+  ind <- "PRI" #######
+  dat <- list()
+  dat$x <- data$DOY
+  dat$y <- data$PRI #######
+  outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
+  if(!file.exists(outFileName)){
+    j.model <- createModel.Exp(data=dat,index=ind)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=40000,iterSize=50000)
+    save(var.Burn,file=outFileName)
+  }
+  
+  ind <- "RGI" #######
+  dat <- list()
+  dat$x <- data$DOY
+  dat$y <- data$RGI #######
+  outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
+  if(!file.exists(outFileName)){
+    j.model <- createModel.Exp(data=dat,index=ind)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=40000,iterSize=50000)
+    save(var.Burn,file=outFileName)
+  }
+  
+  ind <- "NDVI_H" #######
+  dat <- list()
+  dat$x <- data$DOY
+  dat$y <- data$NDVI_H #######
+  outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
+  if(!file.exists(outFileName)){
+    j.model <- createModel.Exp(data=dat,index=ind)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=40000,iterSize=50000)
+    save(var.Burn,file=outFileName)
+  }
+  
   ##mSR
   dat <- list()
   dat$x <- data$DOY
@@ -120,32 +153,12 @@ output <- foreach (i=1:length(trees))%dopar%{
     save(var.Burn,file=outFileName)
   }
   
-  ind <- "RGI" #######
-  dat <- list()
-  dat$x <- data$DOY
-  dat$y <- data$RGI #######
-  outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
-  if(!file.exists(outFileName)){
-    j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=40000,iterSize=50000)
-    save(var.Burn,file=outFileName)
-  }
+
   
   ind <- "DD" #######
   dat <- list()
   dat$x <- data$DOY
   dat$y <- data$DD #######
-  outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
-  if(!file.exists(outFileName)){
-    j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=40000,iterSize=50000)
-    save(var.Burn,file=outFileName)
-  }
-  
-  ind <- "PRI" #######
-  dat <- list()
-  dat$x <- data$DOY
-  dat$y <- data$PRI #######
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
@@ -179,17 +192,6 @@ output <- foreach (i=1:length(trees))%dopar%{
   dat <- list()
   dat$x <- data$DOY
   dat$y <- data$RE #######
-  outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
-  if(!file.exists(outFileName)){
-    j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=40000,iterSize=50000)
-    save(var.Burn,file=outFileName)
-  }
-  
-  ind <- "NDVI_H" #######
-  dat <- list()
-  dat$x <- data$DOY
-  dat$y <- data$NDVI_H #######
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
