@@ -15,22 +15,13 @@ n.cores <- 2
 #register the cores.
 registerDoParallel(cores=n.cores)
 i=1
-trees <- c("BI1","BI2","BI3","BI4","BI5","BE1","BE2","BE3","BE4","BE5","PO1","PO2","PO3","PO4","PO5")
+#trees <- c("BI1","BI2","BI3","BI4","BI5","BE1","BE2","BE3","BE4","BE5","PO1","PO2","PO3","PO4","PO5")
+trees <- c("BE1","BE2","BE3","BE4","BE5")
 year=2016
 
 output <- foreach(i=1:length(trees))%dopar%{
   load(paste(trees[i],"_",year,"_Data.RData",sep=""))
   
-  ##mSR
-  dat <- list()
-  dat$x <- data$DOY
-  dat$y <- data$mSR
-  outFileName <- paste(trees[i],"_",year,"_mSR_CP_varBurn.RData",sep="")
-  if(!file.exists(outFileName)){
-    j.model <- createModel.CP(data=dat,index="mSR")
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","k","muL","prec"),baseNum=10000,iterSize=30000)
-    save(var.Burn,file=outFileName)
-  }
   ##chl
   dat <- list()
   dat$x <- data$DOY
@@ -108,7 +99,17 @@ output <- foreach(i=1:length(trees))%dopar%{
     var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","k","muL","prec"),baseNum=10000,iterSize=30000)
     save(var.Burn,file=outFileName)
   }
-  
+  ##mSR
+  dat <- list()
+  dat$x <- data$DOY
+  dat$y <- data$mSR
+  outFileName <- paste(trees[i],"_",year,"_mSR_CP_varBurn.RData",sep="")
+  if(!file.exists(outFileName)){
+    j.model <- createModel.CP(data=dat,index="mSR")
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","k","muL","prec"),baseNum=10000,iterSize=30000)
+    save(var.Burn,file=outFileName)
+  }  
+
   ind <- "GNDVI" #######
   dat <- list()
   dat$x <- data$DOY
