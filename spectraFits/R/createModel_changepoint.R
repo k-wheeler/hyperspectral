@@ -16,14 +16,14 @@ createModel.CP <- function(data,index){
     data$min.a <- 0
     data$max.a <- 100
     for(i in 1:nchain){
-      inits[[i]] <- list(a=rnorm(1,0.01,0.005),b=rnorm(1,0.12,0.03),muL=rnorm(1,mean(data$y[1:10]),0.05),k=rnorm(1,285,10))
+      inits[[i]] <- list(a=rnorm(1,0.02,0.003),b=rnorm(1,0.12,0.03),muL=rnorm(1,mean(data$y[1:10]),0.05),k=rnorm(1,285,10))
     }
   }
   else{
     data$min.a <- -100
     data$max.a <- 0
     for(i in 1:nchain){
-      inits[[i]] <- list(a=rnorm(1,-0.01,0.005),b=rnorm(1,0.12,0.03),muL=rnorm(1,mean(data$y[1:10]),0.05),k=rnorm(1,285,10))
+      inits[[i]] <- list(a=rnorm(1,-0.02,0.003),b=rnorm(1,0.12,0.03),muL=rnorm(1,mean(data$y[1:10]),0.05),k=rnorm(1,285,10))
     }
   }
   data$min.b <- -100
