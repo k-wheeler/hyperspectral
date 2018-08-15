@@ -18,7 +18,7 @@ t=1
 pdf("Exp_Fits.pdf",width=45,height=45)
 par(mfrow=c(5,5))
 for(t in 1:length(trees)){
-  load(paste(trees[t],"_",yr,"_Data.RData",sep=""))
+  load(paste(trees[t],"_2016_Data.RData",sep=""))
   xseq <- seq(min(data$DOY),max(data$DOY),1)
   
   for(i in 1:length(indices)){
