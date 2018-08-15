@@ -15,7 +15,7 @@ createModel.Exp <- function(data,index){
   # data$p.b <- 1/(0.005**2)
   inits <- list()
   print(index)
-  if(index=="PSRI" || index=="RGI"){
+  if(index=="PSRI" || index=="RGI" || index="CTR" || index="SIPI"){
     data$min.a <- 0
     data$max.a <- 100
     for(i in 1:nchain){
