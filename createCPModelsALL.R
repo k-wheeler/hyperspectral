@@ -204,19 +204,6 @@ output <- foreach(i=1:length(trees))%dopar%{
     }
   }
 
-  ind <- "RE" #######
-  dat <- list()
-  dat$x <- data$DOY
-  dat$y <- data$RE #######
-  outFileName <- paste(trees[i],"_",year,"_",ind,"_CP_varBurn.RData",sep="")
-  if(!file.exists(outFileName)){
-    j.model <- createModel.CP(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","k","muL","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
-    if(typeof(var.Burn)!=typeof(FALSE)){
-      save(var.Burn,file=outFileName)
-    }
-  }
-
   ind <- "NDVI_H" #######
   dat <- list()
   dat$x <- data$DOY
