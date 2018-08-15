@@ -113,7 +113,7 @@ for(t in 1:length(trees)){
         ycred <- matrix(0,nrow=10000,ncol=length(xseq))
         ypred <- matrix(0,nrow=10000,ncol=length(xseq))
         for(g in 1:10000){
-          Ey <- phenoExp(beta0=beta0[g],beta1=beta1[g],xseq=xseq)
+          Ey <- phenoExp(a=a[g],b=b[g],c=c[g],xseq=xseq)
           ycred[g,] <- Ey
           ypred[g,] <- rnorm(length(xseq),Ey,sqrt(1/prec[g]))
         }
