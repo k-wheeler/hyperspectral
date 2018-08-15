@@ -97,25 +97,27 @@ for(t in 1:length(trees)){
     
     if(file.exists(varFile)){
       load(varFile)
-      out.mat <- as.matrix(var.Burn)
-      colnames(out.mat)
-      a <- out.mat[,1]
-      b <- out.mat[,2]
-      c <- out.mat[,3]
-      prec <- out.mat[,4]
-      ycred <- matrix(0,nrow=10000,ncol=length(xseq))
-      ypred <- matrix(0,nrow=10000,ncol=length(xseq))
-      for(g in 1:10000){
-        Ey <- phenoExp(beta0=beta0[g],beta1=beta1[g],xseq=xseq)
-        ycred[g,] <- Ey
-        ypred[g,] <- rnorm(length(xseq),Ey,sqrt(1/prec[g]))
+      if(typeof(var.Burn)!=typeof(FALSE)){
+        out.mat <- as.matrix(var.Burn)
+        print(colnames(out.mat))
+        a <- out.mat[,1]
+        b <- out.mat[,2]
+        c <- out.mat[,3]
+        prec <- out.mat[,4]
+        ycred <- matrix(0,nrow=10000,ncol=length(xseq))
+        ypred <- matrix(0,nrow=10000,ncol=length(xseq))
+        for(g in 1:10000){
+          Ey <- phenoExp(beta0=beta0[g],beta1=beta1[g],xseq=xseq)
+          ycred[g,] <- Ey
+          ypred[g,] <- rnorm(length(xseq),Ey,sqrt(1/prec[g]))
+        }
+        ci <- apply(ycred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
+        pi <- apply(ypred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
+        ciEnvelope(xseq,pi[1,],pi[3,],col="blue")
+        ciEnvelope(xseq,ci[1,],ci[3,],col="lightBlue")
+        points(dat$x,dat$y,pch=20)
+        lines(xseq,ci[2,],col="red")
       }
-      ci <- apply(ycred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
-      pi <- apply(ypred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
-      ciEnvelope(xseq,pi[1,],pi[3,],col="blue")
-      ciEnvelope(xseq,ci[1,],ci[3,],col="lightBlue")
-      points(dat$x,dat$y,pch=20)
-      lines(xseq,ci[2,],col="red")
     }
   }
 }
