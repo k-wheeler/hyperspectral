@@ -1,3 +1,8 @@
+library("rjags")
+library("runjags")
+library("PhenologyBayesModeling")
+
+
 ##' Create the credible interval envelope for plotting
 ##' 
 ##' @param x time range
@@ -96,7 +101,8 @@ for(t in 1:length(trees)){
     plot(dat$x,dat$y,main=paste(trees[t],indices[i],"Exp fit",sep=" "),pch=20)
     
     if(file.exists(varFile)){
-      load(varFile)
+      load(varFile) 
+
       if(typeof(var.Burn)!=typeof(FALSE)){
         out.mat <- as.matrix(var.Burn)
         print(colnames(out.mat))
