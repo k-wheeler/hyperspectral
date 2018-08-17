@@ -15,7 +15,7 @@ createModel.Exp <- function(data,index){
   # data$p.b <- 1/(0.005**2)
   inits <- list()
   print(index)
-  if(index=="PSRI" || index=="RGI" || index="CTR" || index="SIPI"){
+  if(index=="PSRI" || index=="RGI" || index=="CTR" || index=="SIPI"){
     data$min.a <- 0
     data$max.a <- 100
   }
@@ -31,7 +31,7 @@ createModel.Exp <- function(data,index){
   data$max.b <- 100
   data$s1 <- 0.7#0.001
   data$s2 <- 0.3#0.00001
-  topHalf <- c("chl","NDVI_H","NDRE","mND705","GNDVI","NDVI_M","LIC","car","mND")
+  topHalf <- c("chl","NDVI_H","NDRE","mND","GNDVI","NDVI_M","LIC","car","mND")
   if(index %in% topHalf){
     data$mean.c <- 0.75
     data$p.c <- 1/(0.1**2)
