@@ -15,7 +15,7 @@ n.cores <- 5
 #register the cores.
 registerDoParallel(cores=n.cores)
 i=1
-trees <- c("BE1","BE2","BE3","BE4","BE5") #"PO1","PO4","PO5")#,"BE1","BE5","PO2","PO3","BE2","BE3","BE4","PO1","BI1","BI2","BI3","BI4","BI5")
+trees <- c("BI1","BI2","BI3","BI4","BI5") #"PO1","PO4","PO5")#,"BE1","BE5","PO2","PO3","BE2","BE3","BE4","PO1","BI1","BI2","BI3","BI4","BI5")
 year=2016
 output <- foreach (i=1:length(trees))%dopar%{
   load(paste(trees[i],"_",year,"_Data.RData",sep=""))
@@ -27,7 +27,7 @@ output <- foreach (i=1:length(trees))%dopar%{
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
@@ -40,7 +40,7 @@ output <- foreach (i=1:length(trees))%dopar%{
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
@@ -53,7 +53,7 @@ output <- foreach (i=1:length(trees))%dopar%{
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
@@ -67,7 +67,7 @@ output <- foreach (i=1:length(trees))%dopar%{
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
@@ -80,7 +80,7 @@ output <- foreach (i=1:length(trees))%dopar%{
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
@@ -93,7 +93,7 @@ output <- foreach (i=1:length(trees))%dopar%{
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
@@ -106,7 +106,7 @@ output <- foreach (i=1:length(trees))%dopar%{
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
@@ -119,7 +119,7 @@ output <- foreach (i=1:length(trees))%dopar%{
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
@@ -132,7 +132,7 @@ output <- foreach (i=1:length(trees))%dopar%{
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
@@ -145,7 +145,7 @@ output <- foreach (i=1:length(trees))%dopar%{
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
@@ -157,7 +157,7 @@ output <- foreach (i=1:length(trees))%dopar%{
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
@@ -170,7 +170,7 @@ output <- foreach (i=1:length(trees))%dopar%{
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
@@ -183,7 +183,7 @@ output <- foreach (i=1:length(trees))%dopar%{
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
@@ -196,7 +196,7 @@ output <- foreach (i=1:length(trees))%dopar%{
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
@@ -209,7 +209,7 @@ output <- foreach (i=1:length(trees))%dopar%{
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
@@ -222,7 +222,7 @@ output <- foreach (i=1:length(trees))%dopar%{
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
@@ -235,7 +235,7 @@ dat$y <- data$RGI #######
 outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
 if(!file.exists(outFileName)){
   j.model <- createModel.Exp(data=dat,index=ind)
-  var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+  var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
   if(typeof(var.Burn)!=typeof(FALSE)){
     save(var.Burn,file=outFileName)
   }
@@ -248,7 +248,7 @@ dat$y <- data$NDVI_H #######
 outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
 if(!file.exists(outFileName)){
   j.model <- createModel.Exp(data=dat,index=ind)
-  var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+  var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
   if(typeof(var.Burn)!=typeof(FALSE)){
     save(var.Burn,file=outFileName)
   }
@@ -262,7 +262,7 @@ if(!file.exists(outFileName)){
   outFileName <- paste(trees[i],"_",year,"_mSR_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
@@ -276,7 +276,7 @@ if(!file.exists(outFileName)){
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=2)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
