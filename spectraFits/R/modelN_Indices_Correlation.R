@@ -14,9 +14,6 @@ createCorModel <- function(data){
   data$s1 <- 0.001
   data$s2 <- 0.00001
   inits <- list()
-  for(i in 1:nchain){
-    inits[[i]] <- list(beta0=rnorm(1,8,1),beta1=rnorm(1,-0.02,0.01))
-  }
 
   LR.model <- "
   model{
@@ -38,7 +35,6 @@ createCorModel <- function(data){
   "
   j.model   <- jags.model(file = textConnection(LR.model),
                           data = data,
-                          inits=inits,
                           n.chains = nchain)
   return(j.model)
 }
