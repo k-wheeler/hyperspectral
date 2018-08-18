@@ -15,7 +15,7 @@ n.cores <- 5
 #register the cores.
 registerDoParallel(cores=n.cores)
 i=1
-trees <- c("BI1","BI2","BI3","BI4","BI5") #"PO1","PO4","PO5")#,"BE1","BE5","PO2","PO3","BE2","BE3","BE4","PO1","BI1","BI2","BI3","BI4","BI5")
+trees <- c("PO1","PO2","PO3","PO4","PO5") #"PO1","PO4","PO5")#,"BE1","BE5","PO2","PO3","BE2","BE3","BE4","PO1","BI1","BI2","BI3","BI4","BI5")
 year=2016
 output <- foreach (i=1:length(trees))%dopar%{
   load(paste(trees[i],"_",year,"_Data.RData",sep=""))
