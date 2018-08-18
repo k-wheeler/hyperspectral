@@ -67,7 +67,7 @@ createModel.Exp <- function(data,index){
     }
     else if(index == "mND"){
       for(i in 1:nchain){
-        inits[[i]] <- list(a=rnorm(1,-0.0003,0.00001),b=rnorm(1,0.07,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
+        inits[[i]] <- list(a=rnorm(1,-0.0003,0.00001),b=rnorm(1,0.08,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
       }
     }
     else if(index == "NDVI_M"){
@@ -108,7 +108,7 @@ createModel.Exp <- function(data,index){
     data$mean.c <- 0
     data$p.c <- 1/(0.02**2)
     for(i in 1:nchain){
-      inits[[i]] <- list(a=rnorm(1,0.00015,0.00001),b=rnorm(1,0.08,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
+      inits[[i]] <- list(a=rnorm(1,0.00015,0.00001),b=rnorm(1,0.09,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
     }
   }
   else if(index=="RGI"){
