@@ -42,7 +42,7 @@ createModel.Exp <- function(data,index){
     }
     else if(index == "car"){
       for(i in 1:nchain){
-        inits[[i]] <- list(a=rnorm(1,-0.01,0.001),b=rnorm(1,0.03,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
+        inits[[i]] <- list(a=rnorm(1,-0.01,0.001),b=rnorm(1,0.033,0.0001),c=rnorm(1,mean(data$y[1:5]),0.05))
       }
     }
     else if(index == "NDVI_H"){
