@@ -138,18 +138,18 @@ output <- foreach (i=1:length(trees))%dopar%{
 #     }
 #   }
 # 
-#   ind <- "VGM" #######
-#   dat <- list()
-#   dat$x <- data$DOY
-#   dat$y <- data$VGM #######
-#   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
-#   if(!file.exists(outFileName)){
-#     j.model <- createModel.Exp(data=dat,index=ind)
-#     var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
-#     if(typeof(var.Burn)!=typeof(FALSE)){
-#       save(var.Burn,file=outFileName)
-#     }
-#   }
+  ind <- "VGM" #######
+  dat <- list()
+  dat$x <- data$DOY
+  dat$y <- data$VGM #######
+  outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
+  if(!file.exists(outFileName)){
+    j.model <- createModel.Exp(data=dat,index=ind)
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
+    if(typeof(var.Burn)!=typeof(FALSE)){
+      save(var.Burn,file=outFileName)
+    }
+  }
 #   ind <- "RVI1" #######
 #   dat <- list()
 #   dat$x <- data$DOY
@@ -176,18 +176,18 @@ output <- foreach (i=1:length(trees))%dopar%{
 #     }
 #   }
 # 
-  ind <- "LIC" #######
-  dat <- list()
-  dat$x <- data$DOY
-  dat$y <- data$LIC #######
-  outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
-  if(!file.exists(outFileName)){
-    j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
-    if(typeof(var.Burn)!=typeof(FALSE)){
-      save(var.Burn,file=outFileName)
-    }
-  }
+  # ind <- "LIC" #######
+  # dat <- list()
+  # dat$x <- data$DOY
+  # dat$y <- data$LIC #######
+  # outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
+  # if(!file.exists(outFileName)){
+  #   j.model <- createModel.Exp(data=dat,index=ind)
+  #   var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3)
+  #   if(typeof(var.Burn)!=typeof(FALSE)){
+  #     save(var.Burn,file=outFileName)
+  #   }
+  # }
 # 
 #   ind <- "CTR" #######
 #   dat <- list()
