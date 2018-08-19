@@ -16,7 +16,7 @@ ciEnvelope <- function(x,ylo,yhi,...){
 phenoExp <- function(c,a,xseq,b){
   return(a * exp(b*(xseq-xseq[1])) + c)
 }
-indices <- c("chl","car","NDVI_H","PRI","NDRE","GNDVI","GM1","RVI1","RVI2","LIC","CTR","GM2","VGM","PSRI","mSR","mND","DD","RGI","RE","NDVI_M","SIPI")
+indices <- c("chl","car","NDVI_H","PRI","NDRE","GNDVI","GM1","RVI1","RVI2","LIC","CTR","GM2","VGM","PSRI","mSR","mND","DD","RGI","NDVI_M","SIPI")
 trees <- c("BE1","BE2","BE3","BE4","BE5","BI1","BI2","BI3","BI4","BI5","PO1","PO2","PO3","PO4","PO5")
 i=1
 t=1
