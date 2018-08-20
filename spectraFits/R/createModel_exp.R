@@ -47,7 +47,7 @@ createModel.Exp <- function(data,index){
     }
     else if(index == "NDVI_H"){
       for(i in 1:nchain){
-        inits[[i]] <- list(a=rnorm(1,-0.0005,0.00001),b=rnorm(1,0.07,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
+        inits[[i]] <- list(a=rnorm(1,-0.00001,0.000001),b=rnorm(1,0.11,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
       }
     }
     else if(index == "NDRE"){
@@ -62,7 +62,7 @@ createModel.Exp <- function(data,index){
     }
     else if(index == "LIC"){
       for(i in 1:nchain){
-        inits[[i]] <- list(a=rnorm(1,-0.00008,0.00001),b=rnorm(1,0.08,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
+        inits[[i]] <- list(a=rnorm(1,-0.00008,0.00001),b=rnorm(1,0.076,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
       }
     }
     else if(index == "mND"){
@@ -86,14 +86,14 @@ createModel.Exp <- function(data,index){
   else if(index == "GM2" || index == "RVI1"){
     data$mean.c <- 9
     data$p.c <- 1/(3**2)
-    if(index=="RVI1"){
+    if(index=="GM2"){
       for(i in 1:nchain){
-        inits[[i]] <- list(a=rnorm(1,-0.015,0.001),b=rnorm(1,0.07,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
+        inits[[i]] <- list(a=rnorm(1,-0.05,0.001),b=rnorm(1,0.04,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
       }
     }
     else if(index=="RVI1"){
       for(i in 1:nchain){
-        inits[[i]] <- list(a=rnorm(1,-0.005,0.001),b=rnorm(1,0.065,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
+        inits[[i]] <- list(a=rnorm(1,-0.4,0.03),b=rnorm(1,0.035,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
       }
     }
   }
@@ -115,7 +115,7 @@ createModel.Exp <- function(data,index){
     data$mean.c <- 2
     data$p.c <- 1/(1**2)
     for(i in 1:nchain){
-      inits[[i]] <- list(a=rnorm(1,0.0003,0.00001),b=rnorm(1,0.08,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
+      inits[[i]] <- list(a=rnorm(1,0.0000001,0.00001),b=rnorm(1,0.165,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
     }
   }
   else if(index=="mSR"){
@@ -126,7 +126,7 @@ createModel.Exp <- function(data,index){
     data$mean.c <- 0.1
     data$p.c <- 1/(0.02**2)
     for(i in 1:nchain){
-      inits[[i]] <- list(a=rnorm(1,-0.05,0.001),b=rnorm(1,0.07,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
+      inits[[i]] <- list(a=rnorm(1,-0.05,0.001),b=rnorm(1,0.065,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
     }
   }
   else if(index=="PSRI"){
