@@ -42,7 +42,7 @@ createModel.Exp <- function(data,index){
     }
     else if(index == "car"){
       for(i in 1:nchain){
-        inits[[i]] <- list(a=rnorm(1,-0.01,0.003),b=rnorm(1,0.033,0.005),c=rnorm(1,mean(data$y[1:5]),0.05))
+        inits[[i]] <- list(a=rnorm(1,-0.0001,0.00001),b=rnorm(1,0.085,0.005),c=rnorm(1,mean(data$y[1:5]),0.05))
       }
     }
     else if(index == "NDVI_H"){
@@ -80,7 +80,7 @@ createModel.Exp <- function(data,index){
     data$mean.c <- 0.3
     data$p.c <- 1/(0.1**2)
     for(i in 1:nchain){
-      inits[[i]] <- list(a=rnorm(1,-0.0002,0.00001),b=rnorm(1,0.07,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
+      inits[[i]] <- list(a=rnorm(1,-0.0001,0.00001),b=rnorm(1,0.075,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
     }
   }
   else if(index == "GM2" || index == "RVI1"){
@@ -162,7 +162,7 @@ createModel.Exp <- function(data,index){
     data$mean.c <- 2
     data$p.c <- 1/(0.5**2)
     for(i in 1:nchain){
-      inits[[i]] <- list(a=rnorm(1,0.0003,0.000001),b=rnorm(1,0.082,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
+      inits[[i]] <- list(a=rnorm(1,0.00000001,0.000000001),b=rnorm(1,0.21,0.03),c=rnorm(1,mean(data$y[1:5]),0.05))
     }
   }
   else{
