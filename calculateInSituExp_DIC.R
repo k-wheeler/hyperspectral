@@ -1,3 +1,6 @@
+install.packages("/projectnb/dietzelab/kiwheel/NEFI_pheno/PhenologyBayesModeling",repo=NULL)
+install.packages("/projectnb/dietzelab/kiwheel/hyperspectral/spectraFits",repo=NULL)
+
 library("spectraFits")
 library("rjags")
 library("runjags")
