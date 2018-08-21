@@ -82,9 +82,11 @@ for(i in 1:length(indices)){
   if(!file.exists(outFileName)){
     load(paste("measuredRData/",indices[i],"_",tree,"_allmeasured.RData",sep=""))
     load(paste("measuredRData/",indices[i],"_",tree,"_measured_varBurn.RData",sep=""))
-    j.model <- createCorModel(data=data)
-    var.sum <- summary(var.Burn)
-    DIC <- dic.samples(j.model,n.iter = var.sum$end)
+    j.model <- createCorModel(data=data2)
+    var.Burn2 <- runMCMC_Model(j.model = j.model,variableNames = c("beta0","beta1","prec"))
+    var.sum2 <- summary(var.Burn2)
+    DIC2 <- dic.samples(j.model,n.iter = var.sum2$end)
+    DIC2
     print(outFileName)
     save(DIC,file=outFileName)
   }
