@@ -115,7 +115,7 @@ createModel.Exp <- function(data,index){
     data$mean.c <- 2
     data$p.c <- 1/(1**2)
     for(i in 1:nchain){
-      inits[[i]] <- list(a=rnorm(1,0.0000001,0.00001),b=rnorm(1,0.165,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
+      inits[[i]] <- list(a=rnorm(1,0.0000001,0.00000001),b=rnorm(1,0.165,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
     }
   }
   else if(index=="mSR"){
@@ -170,6 +170,9 @@ createModel.Exp <- function(data,index){
     return()
   }
 
+  print(data$max.a)
+  print(data$min.a)
+  print(inits)
   Exp.model <- "
   model{
   ##priors
