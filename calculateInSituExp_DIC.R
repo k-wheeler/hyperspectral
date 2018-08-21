@@ -15,8 +15,8 @@ registerDoParallel(cores=n.cores)
 
 indices <- c("chl","car","NDVI_H","PRI","NDRE","GNDVI","GM1","RVI1","RVI2","LIC","CTR","GM2","VGM","PSRI","mSR","mND","DD","RGI","RE","NDVI_M","SIPI")
 #trees <- c("PO1","PO2","PO3","PO4","PO5","BE1","BE2","BE3","BE4","BE5","BI1","BI2","BI3","BI4","BI5")
-#trees <- c("BI1","BI2","BI3","BI4","BI5")
-trees <- c("BE1","BE2","BE3","BE4","BE5")
+trees <- c("BI1","BI2","BI3","BI4","BI5")
+#trees <- c("BE1","BE2","BE3","BE4","BE5")
 
 tp <- "Exp"
 output <- foreach(t=1:length(trees))%dopar%{
