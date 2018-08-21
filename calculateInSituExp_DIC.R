@@ -18,6 +18,39 @@ trees <- c("PO1","PO2","PO3","PO4","PO5","BE1","BE2","BE3","BE4","BE5","BI1","BI
 tp <- "Exp"
 output <- foreach(t=1:length(trees))%dopar%{
   #for(t in 1:length(trees)){
+  
+  ind <- "RVI2" #####
+  outFileName <- paste("DIC_collected_values/",ind,"_",trees[t],"_",tp,"_DIC.RData",sep="")
+  inFileName <- paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep="")
+  if(!file.exists(outFileName) && file.exists(inFileName)){
+    load(paste(trees[t],"_2016_Data.RData",sep=""))
+    dat <- list()
+    dat$x <- data$DOY
+    dat$y <- data$RVI2 ####
+    load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
+    j.model <- createModel.Exp(data=dat,index=ind)
+    var.sum <- summary(var.Burn)
+    DIC <- dic.samples(j.model,n.iter = var.sum$end)
+    print(outFileName)
+    save(DIC,file=outFileName)
+  }
+  
+  ind <- "LIC" #####
+  outFileName <- paste("DIC_collected_values/",ind,"_",trees[t],"_",tp,"_DIC.RData",sep="")
+  inFileName <- paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep="")
+  if(!file.exists(outFileName) && file.exists(inFileName)){
+    load(paste(trees[t],"_2016_Data.RData",sep=""))
+    dat <- list()
+    dat$x <- data$DOY
+    dat$y <- data$LIC ####
+    load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
+    j.model <- createModel.Exp(data=dat,index=ind)
+    var.sum <- summary(var.Burn)
+    DIC <- dic.samples(j.model,n.iter = var.sum$end)
+    print(outFileName)
+    save(DIC,file=outFileName)
+  }
+  
   ind <- "CTR" #####
   outFileName <- paste("DIC_collected_values/",ind,"_",trees[t],"_",tp,"_DIC.RData",sep="")
   inFileName <- paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep="")
@@ -297,38 +330,6 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat <- list()
     dat$x <- data$DOY
     dat$y <- data$RVI1 ####
-    load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
-    var.sum <- summary(var.Burn)
-    DIC <- dic.samples(j.model,n.iter = var.sum$end)
-    print(outFileName)
-    save(DIC,file=outFileName)
-  }
-  
-  ind <- "RVI2" #####
-  outFileName <- paste("DIC_collected_values/",ind,"_",trees[t],"_",tp,"_DIC.RData",sep="")
-  inFileName <- paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep="")
-  if(!file.exists(outFileName) && file.exists(inFileName)){
-    load(paste(trees[t],"_2016_Data.RData",sep=""))
-    dat <- list()
-    dat$x <- data$DOY
-    dat$y <- data$RVI2 ####
-    load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
-    var.sum <- summary(var.Burn)
-    DIC <- dic.samples(j.model,n.iter = var.sum$end)
-    print(outFileName)
-    save(DIC,file=outFileName)
-  }
-  
-  ind <- "LIC" #####
-  outFileName <- paste("DIC_collected_values/",ind,"_",trees[t],"_",tp,"_DIC.RData",sep="")
-  inFileName <- paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep="")
-  if(!file.exists(outFileName) && file.exists(inFileName)){
-    load(paste(trees[t],"_2016_Data.RData",sep=""))
-    dat <- list()
-    dat$x <- data$DOY
-    dat$y <- data$LIC ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
     j.model <- createModel.Exp(data=dat,index=ind)
     var.sum <- summary(var.Burn)
