@@ -30,6 +30,7 @@ for(i in 1:length(indices)){
     xseq <- seq(min(data$DOY),max(data$DOY),1)
     dat <- list()
     dat$x <- data$DOY
+    ind <- indices[i]
     if(ind=="chl"){
       dat$y <- data$chl
     }
