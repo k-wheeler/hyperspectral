@@ -20,7 +20,7 @@ phenoLR <- function(beta0,beta1,xseq){
 phenoExp <- function(c,a,xseq,b){
   return(a * exp(b*(xseq-xseq[1])) + c)
 }
-indices <- c("NDRE","PRI","chl","NDVI","PSRI","car","mND","GNDVI")
+indices <- c("NDRE","PRI","chl","NDVI_H","PSRI","car","mND","GNDVI")
 trees <- c("BE1","BI1","PO1")
 types <- c("LR","Exp")
 yr <- "2016"
@@ -30,7 +30,11 @@ par(mfrow=c(8,6), mai = c(0.25, 0.4, 0.15, 0.2))
 for(i in 1:length(indices)){
   print(indices[i])
   for(tr in 1:length(trees)){
-    load(paste(trees[tr],"_",yr,"_Data.RData",sep=""))
+    tree <- trees[tr]
+    if(tree=="PO1" && indices[i]=="PRI"){
+      tree <- "PO3"
+    }
+    load(paste(tree,"_",yr,"_Data.RData",sep=""))
     xseq <- seq(min(data$DOY),max(data$DOY),1)
     dat <- list()
     dat$x <- data$DOY
@@ -102,7 +106,7 @@ for(i in 1:length(indices)){
       print("ERROR")
     }
     ty <- 1
-      load(paste(trees[tr],"_2016_",indices[i],"_",types[ty],"_varBurn.RData",sep=""))
+      load(paste(tree,"_2016_",indices[i],"_",types[ty],"_varBurn.RData",sep=""))
       out.mat <- as.matrix(var.Burn)
       beta0 <- out.mat[,1]
       beta1 <- out.mat[,2]
@@ -124,7 +128,7 @@ for(i in 1:length(indices)){
       points(dat$x,dat$y,pch=20)
       lines(xseq,ci[2,],col="red")
       ty <- 2
-      load(paste(trees[tr],"_2016_",indices[i],"_",types[ty],"_varBurn.RData",sep=""))
+      load(paste(tree,"_2016_",indices[i],"_",types[ty],"_varBurn.RData",sep=""))
       out.mat <- as.matrix(var.Burn)
       print(colnames(out.mat))
       a <- out.mat[,1]
