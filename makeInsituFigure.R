@@ -25,7 +25,7 @@ trees <- c("BE1","BI1","PO1")
 types <- c("LR","Exp")
 yr <- "2016"
 pdf("InSitu_Figure.pdf",width=20,height=20)
-par(mfrow=c(8,6), mai = c(0.25, 0.4, 0.15, 0.2))
+par(mfrow=c(8,3), mai = c(0.25, 0.4, 0.15, 0.2))
 
 for(i in 1:length(indices)){
   print(indices[i])
@@ -119,14 +119,9 @@ for(i in 1:length(indices)){
         ycred[g,] <- Ey
         ypred[g,] <- rnorm(length(xseq),Ey,sqrt(1/prec[g]))
       }
-      ci <- apply(ycred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
-      pi <- apply(ypred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
-      
-      plot(dat$x,dat$y,pch=20,ylab="",xlab="",cex.axis=2)
-      ciEnvelope(xseq,pi[1,],pi[3,],col="blue")
-      ciEnvelope(xseq,ci[1,],ci[3,],col="lightBlue")
-      points(dat$x,dat$y,pch=20)
-      lines(xseq,ci[2,],col="red")
+      ci.LR <- apply(ycred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
+      pi.LR <- apply(ypred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
+
       ty <- 2
       load(paste(tree,"_2016_",indices[i],"_",types[ty],"_varBurn.RData",sep=""))
       out.mat <- as.matrix(var.Burn)
@@ -142,14 +137,18 @@ for(i in 1:length(indices)){
         ycred[g,] <- Ey
         ypred[g,] <- rnorm(length(xseq),Ey,sqrt(1/prec[g]))
       }
-      ci <- apply(ycred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
-      pi <- apply(ypred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
+      ci.Exp <- apply(ycred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
+      pi.Exp <- apply(ypred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
       
       plot(dat$x,dat$y,pch=20,ylab="",xlab="",cex.axis=2)
-      ciEnvelope(xseq,pi[1,],pi[3,],col="blue")
-      ciEnvelope(xseq,ci[1,],ci[3,],col="lightBlue")
+      ciEnvelope(xseq,pi.Exp[1,],pi.Exp[3,],col=rgb(0,0,1,0.5))
+      ciEnvelope(xseq,ci.Exp[1,],ci.Exp[3,],col=rgb(0,0,1,0.2))
+      ciEnvelope(xseq,pi.LR[1,],pi.LR[3,],col=rgb(1,0,0,0.5))
+      ciEnvelope(xseq,ci.LR[1,],ci.LR[3,],col=rgb(1,0,0,0.2))
+      
       points(dat$x,dat$y,pch=20)
-      lines(xseq,ci[2,],col="red")
+      lines(xseq,ci.LR[2,],col="red")
+      lines(xseq,ci.Exp[2,],col="blue")
       
     
   }
