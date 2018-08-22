@@ -1,6 +1,7 @@
 library("rjags")
 library("runjags")
 library("PhenologyBayesModeling")
+library("spectraFits")
 
 
 ##' Create the credible interval envelope for plotting
@@ -15,6 +16,9 @@ ciEnvelope <- function(x,ylo,yhi,...){
 
 phenoLR <- function(beta0,beta1,xseq){
   return(beta0+beta1*xseq)
+}
+phenoExp <- function(c,a,xseq,b){
+  return(a * exp(b*(xseq-xseq[1])) + c)
 }
 indices <- c("NDRE","PRI","chl","NDVI","PSRI","car","mND","GNDVI")
 trees <- c("BE1","BI1","PO1")
@@ -97,9 +101,12 @@ for(i in 1:length(indices)){
     else{
       print("ERROR")
     }
-    
-    for(ty in 1:length(types)){
+    ty <- 1
       load(paste(trees[tr],"_2016_",indices[i],"_",types[ty],"_varBurn.RData",sep=""))
+      out.mat <- as.matrix(var.Burn)
+      beta0 <- out.mat[,1]
+      beta1 <- out.mat[,2]
+      prec <- out.mat[,3]
       
       ycred <- matrix(0,nrow=10000,ncol=length(xseq))
       ypred <- matrix(0,nrow=10000,ncol=length(xseq))
@@ -116,7 +123,31 @@ for(i in 1:length(indices)){
       ciEnvelope(xseq,ci[1,],ci[3,],col="lightBlue")
       points(dat$x,dat$y,pch=20)
       lines(xseq,ci[2,],col="red")
-    }
+      ty <- 2
+      load(paste(trees[tr],"_2016_",indices[i],"_",types[ty],"_varBurn.RData",sep=""))
+      out.mat <- as.matrix(var.Burn)
+      print(colnames(out.mat))
+      a <- out.mat[,1]
+      b <- out.mat[,2]
+      c <- out.mat[,3]
+      prec <- out.mat[,4]
+      ycred <- matrix(0,nrow=10000,ncol=length(xseq))
+      ypred <- matrix(0,nrow=10000,ncol=length(xseq))
+      for(g in 1:10000){
+        Ey <- phenoExp(a=a[g],b=b[g],c=c[g],xseq=xseq)
+        ycred[g,] <- Ey
+        ypred[g,] <- rnorm(length(xseq),Ey,sqrt(1/prec[g]))
+      }
+      ci <- apply(ycred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
+      pi <- apply(ypred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
+      
+      plot(dat$x,dat$y,pch=20,ylab="",xlab="",cex.axis=2)
+      ciEnvelope(xseq,pi[1,],pi[3,],col="blue")
+      ciEnvelope(xseq,ci[1,],ci[3,],col="lightBlue")
+      points(dat$x,dat$y,pch=20)
+      lines(xseq,ci[2,],col="red")
+      
+    
   }
   
 }
