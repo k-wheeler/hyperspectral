@@ -99,7 +99,7 @@ for(i in 1:length(indices)){
     }
     
     for(ty in 1:length(types)){
-      load(paste(tree,"_2016_",indices[i],"_",types[ty],"_varBurn.RData",sep=""))
+      load(paste(trees[tr],"_2016_",indices[i],"_",types[ty],"_varBurn.RData",sep=""))
       
       ycred <- matrix(0,nrow=10000,ncol=length(xseq))
       ypred <- matrix(0,nrow=10000,ncol=length(xseq))
