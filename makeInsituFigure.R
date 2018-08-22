@@ -143,12 +143,16 @@ for(i in 1:length(indices)){
       plot(dat$x,dat$y,pch=20,ylab="",xlab="",cex.axis=2)
       ciEnvelope(xseq,pi.Exp[1,],pi.Exp[3,],col=rgb(0,0,1,0.5))
       ciEnvelope(xseq,pi.LR[1,],pi.LR[3,],col=rgb(1,0,0,0.5))
-      ciEnvelope(xseq,ci.Exp[1,],ci.Exp[3,],col=rgb(0,0,1,0.2))
-      ciEnvelope(xseq,ci.LR[1,],ci.LR[3,],col=rgb(1,0,0,0.2))
+      #ciEnvelope(xseq,ci.Exp[1,],ci.Exp[3,],col=rgb(0,0,1,0.2))
+      #ciEnvelope(xseq,ci.LR[1,],ci.LR[3,],col=rgb(1,0,0,0.2))
       
       points(dat$x,dat$y,pch=20)
       lines(xseq,ci.LR[2,],col="red")
+      lines(xseq,ci.LR[1,],col="red",lty="-")
+      lines(xseq,ci.LR[3,],col="red",lty="-")
       lines(xseq,ci.Exp[2,],col="blue")
+      lines(xseq,ci.Exp[1,],col="blue",lty="-")
+      lines(xseq,ci.Exp[3,],col="blue",lty="-")
       
     
   }
