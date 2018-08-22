@@ -147,9 +147,9 @@ for(i in 1:length(indices)){
       #ciEnvelope(xseq,ci.LR[1,],ci.LR[3,],col=rgb(1,0,0,0.2))
       
       points(dat$x,dat$y,pch=20)
-      lines(xseq,ci.LR[2,],col="red")
-      lines(xseq,ci.LR[1,],col="red",lty="dashed")
-      lines(xseq,ci.LR[3,],col="red",lty="dashed")
+      lines(xseq,ci.LR[2,],col=rgb(1,0,0,2))
+      lines(xseq,ci.LR[1,],col=rgb(1,0,0,2),lty="dashed")
+      lines(xseq,ci.LR[3,],col=rgb(1,0,0,2),lty="dashed")
       lines(xseq,ci.Exp[2,],col="blue")
       lines(xseq,ci.Exp[1,],col="blue",lty="dashed")
       lines(xseq,ci.Exp[3,],col="blue",lty="dashed")
