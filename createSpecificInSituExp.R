@@ -19,11 +19,15 @@ registerDoParallel(cores=n.cores)
 toDo <- matrix(nrow=6,ncol=4)
 #toDo[,1] <- c("BE2","BE4","BE5","BE5","BE5","BE5","BI2","BI2","BI3","PO1","PO1","PO2","PO2","PO3","PO3","PO3","PO3","PO3","PO3","PO4","PO5","PO5","PO5","PO5")
 #toDo[,2] <- c("DD","DD","NDVI_H","GM2","VGM","RGI","PRI","LIC","LIC","PRI","GM2","RVI1","GM2","car","NDVI_H","RVI1","GM2","RGI","SIPI","GNDVI","NDVI_H","GNDVI","RVI2","NDVI_M")
-toDo[,1] <- c("BE2","BE4","BE5","BE5","BE5","BE5")
-toDo[,2] <- c("DD","DD","NDVI_H","GM2","VGM","RGI")
+#toDo[,1] <- c("BE2","BE4","BE5","BE5","BE5","BE5")
+#toDo[,2] <- c("DD","DD","NDVI_H","GM2","VGM","RGI")
               
-toDo[,3] <- c(-0.05,-0.07,-0.0000005,-0.1,-0.0005,0.00000003)
-toDo[,4] <- c(0.065,0.09,0.145,0.035,0.07,0.18)
+#toDo[,3] <- c(-0.05,-0.07,-0.0000005,-0.1,-0.0005,0.00000003)
+#toDo[,4] <- c(0.065,0.09,0.145,0.035,0.07,0.18)
+toDo[,1] <- c("BI2","BI2","BI3","PO1","PO1","PO2")
+toDo[,2] <- c("PRI","LIC","LIC","PRI","GM2","RVI1")
+toDo[,3] <- c(-0.00002,a=-0.00008,-0.00008,-0.000002,-0.1,-0.0001)
+toDo[,4] <- c(0.095,0.08,0.085,0.13,0.035,0.12)
 
 
 output <- foreach(i=1:nrow(toDo))%dopar%{
