@@ -34,7 +34,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$RGI ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -50,7 +50,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$chl ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -66,7 +66,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$car ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -82,7 +82,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$NDVI_H ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -98,7 +98,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$PRI ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -114,7 +114,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$NDRE ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -130,7 +130,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$GNDVI ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -146,7 +146,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$GM1 ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -162,7 +162,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$RVI1 ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -179,7 +179,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$NDVI_M ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -194,7 +194,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$SIPI ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -210,7 +210,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$RVI2 ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -226,7 +226,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$LIC ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -242,7 +242,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$CTR ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -258,7 +258,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$GM2 ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -274,7 +274,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$VGM ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -290,7 +290,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$PSRI ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -306,7 +306,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$DD ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -325,7 +325,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$mND ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -341,7 +341,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$mSR ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
@@ -357,7 +357,7 @@ output <- foreach(t=1:length(trees))%dopar%{
     dat$x <- data$DOY
     dat$y <- data$RE ####
     load(paste(trees[t],"_2016_",ind,"_",tp,"_varBurn.RData",sep=""))
-    j.model <- createModel.Exp(data=dat,index=ind)
+    j.model <- createModel.Exp2(data=dat,index=ind)
     var.sum <- summary(var.Burn)
     DIC <- dic.samples(j.model,n.iter = var.sum$end)
     print(outFileName)
