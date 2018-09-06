@@ -115,7 +115,7 @@ output <- foreach(i=1:nrow(toDo))%dopar%{
   inits <- list()
   nchain <- 5
   for(j in 1:nchain){
-    inits[[j]] <- list(a=rnorm(1,as.numeric(toDo[i,3]),abs(as.numeric(toDo[i,3])/50)),b=rnorm(1,as.numeric(toDo[i,4]),abs(as.numeric(toDo[i,4])/50)),c=rnorm(1,mean(dat$y[1:5]),abs(mean(dat$y[1:5])/50)))
+    inits[[j]] <- list(a=rnorm(1,as.numeric(toDo[i,3]),abs(as.numeric(toDo[i,3])/5)),b=rnorm(1,as.numeric(toDo[i,4]),abs(as.numeric(toDo[i,4])/5)),c=rnorm(1,mean(dat$y[1:5]),abs(mean(dat$y[1:5])/50)))
   }
   
   outFileName <- paste(toDo[i,1],"_2016_",ind,"_Exp_varBurn.RData",sep="")
