@@ -212,12 +212,12 @@ createModel.Exp2 <- function(data,index){
   inits <- list()
   print(index)
   if(index=="PSRI" || index=="RGI" || index=="CTR" || index=="SIPI"){
-    data$min.a <- -100 #0
+    data$min.a <- 0 #0
     data$max.a <- 100
   }
   else{
     data$min.a <- -100
-    data$max.a <- 100 #
+    data$max.a <- 0 #
     for(i in 1:nchain){
       inits[[i]] <- list(a=rnorm(1,-0.34,0.005),b=rnorm(1,0.02,0.005),c=rnorm(1,mean(data$y[1:5]),0.05))
     }
