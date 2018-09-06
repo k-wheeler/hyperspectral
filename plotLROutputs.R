@@ -35,11 +35,18 @@ for(i in 1:length(fitFiles)){
   }
   print(ind)
   load(paste(tree,"_",yr,"_Data.RData",sep=""))
+  rndNums <- sample(1:length(beta0),10000,replace=T)
+  
   xseq <- seq(min(data$DOY),max(data$DOY),1)
   
-  ycred <- matrix(0,nrow=10000,ncol=length(xseq))
-  ypred <- matrix(0,nrow=10000,ncol=length(xseq))
-  for(g in 1:10000){
+  beta0 <- beta0[rndNums]
+  beta1 <- beta1[rndNums]
+  prec <- prec[rndNums]
+  
+  ycred <- matrix(0,nrow=length(beta0),ncol=length(xseq))
+  ypred <- matrix(0,nrow=length(beta0),ncol=length(xseq))
+  
+  for(g in 1:length(beta0)){
     Ey <- phenoLR(beta0=beta0[g],beta1=beta1[g],xseq=xseq)
     ycred[g,] <- Ey
     ypred[g,] <- rnorm(length(xseq),Ey,sqrt(1/prec[g]))
