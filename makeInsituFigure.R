@@ -25,7 +25,7 @@ indices <- c("NDRE","PRI","chl")
 trees <- c("BE1","BI1","PO1")
 types <- c("LR","Exp")
 yr <- "2016"
-pdf("InSitu_Figure.pdf",width=20,height=20)
+pdf("InSitu_Figure.pdf",width=20,height=15)
 par(mfrow=c(3,3), mai = c(0.25, 0.4, 0.15, 0.2))
 
 for(i in 1:length(indices)){
