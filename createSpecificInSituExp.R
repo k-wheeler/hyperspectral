@@ -32,15 +32,15 @@ toDo <- matrix(nrow=6,ncol=4)
 #toDo[,2] <- c("GM2","RGI","SIPI","GNDVI","NDVI_H","GNDVI")
 #toDo[,3] <- c(-0.01,-0.01,-0.0000005,-0.01,-0.01,0.000000003)#,0.000003)
 #toDo[,4] <- c(0.06,0.033,0.145,0.075,0.06,0.22)#0.14
-toDo[,1] <- c("PO3","PO4","PO5","PO5","PO5","PO5")
-toDo[,2] <- c("SIPI","GNDVI","NDVI_H","GNDVI","RVI2","NDVI_M")
-toDo[,3] <- c(0.000003,-0.0003,-0.0000005,-0.0003,-0.005,-0.0005)
-toDo[,4] <- c(0.14,0.07,0.145,0.07,0.06,0.07)
+#toDo[,1] <- c("PO3","PO4","PO5","PO5","PO5","PO5")
+#toDo[,2] <- c("SIPI","GNDVI","NDVI_H","GNDVI","RVI2","NDVI_M")
+#toDo[,3] <- c(0.000003,-0.0003,-0.0000005,-0.0003,-0.005,-0.0005)
+#toDo[,4] <- c(0.14,0.07,0.145,0.07,0.06,0.07)
 
-# toDo[,1] <- c("BE2","BE4","BE5","BE5","BE5","BE5")
-# toDo[,2] <- c("DD","DD","NDVI_H","NDVI_H","VGM","RGI")
-# toDo[,3] <- c(-0.05,-0.08,-0.00000000005,-0.1,-0.0005,0.000000003)
-# toDo[,4] <- c(0.0646,0.085,0.24,0.035,0.07,0.203)
+toDo[,1] <- c("BE2","BE4","BE5","BE5","BE5","BE5")
+toDo[,2] <- c("DD","DD","NDVI_H","NDVI_H","VGM","RGI")
+toDo[,3] <- c(-0.05,-0.08,-0.00000000005,-0.1,-0.0005,0.000000003)
+toDo[,4] <- c(0.0646,0.085,0.24,0.035,0.07,0.203)
 
 
 
@@ -127,7 +127,7 @@ output <- foreach(i=1:nrow(toDo))%dopar%{
   outFileName <- paste(toDo[i,1],"_2016_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind,inits=inits)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=10,ID=paste(ind,toDo[i,1],sep="_"))
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=100,ID=paste(ind,toDo[i,1],sep="_"))
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
