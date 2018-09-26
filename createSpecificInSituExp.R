@@ -126,7 +126,7 @@ output <- foreach(i=1:nrow(toDo))%dopar%{
   outFileName <- paste(toDo[i,1],"_2016_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index=ind,inits=inits)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=3,ID=paste(ind,toDo[i,1],sep="_"))
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=10,ID=paste(ind,toDo[i,1],sep="_"))
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
     }
