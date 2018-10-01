@@ -141,7 +141,7 @@ for(i in 1:length(indices)){
       ci.Exp <- apply(ycred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
       pi.Exp <- apply(ypred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
       print(dat$x)
-      plot(as.Date(as.numeric(dat$x),origin="2015-12-31"),dat$y,pch=20,ylab="",xlab="",cex.axis=2,xlim=c(as.Date("2016-08-01"),as.Date("2016-11-20")))
+      plot(as.Date(as.numeric(dat$x),origin="2015-12-31"),dat$y,pch=20,ylab="",xlab="",cex.axis=3,xlim=c(as.Date("2016-08-01"),as.Date("2016-11-20")))
       print("past first plot")
       ciEnvelope(as.Date(xseq,origin="2015-12-31"),pi.Exp[1,],pi.Exp[3,],col=rgb(0,0,1,0.5))
       ciEnvelope(as.Date(xseq,origin="2015-12-31"),pi.LR[1,],pi.LR[3,],col=rgb(1,0,0,0.5))
