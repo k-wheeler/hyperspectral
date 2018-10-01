@@ -141,19 +141,19 @@ for(i in 1:length(indices)){
       ci.Exp <- apply(ycred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
       pi.Exp <- apply(ypred,2,quantile,c(0.025,0.5, 0.975), na.rm= TRUE)
       
-      plot(dat$x,dat$y,pch=20,ylab="",xlab="",cex.axis=2)
-      ciEnvelope(xseq,pi.Exp[1,],pi.Exp[3,],col=rgb(0,0,1,0.5))
-      ciEnvelope(xseq,pi.LR[1,],pi.LR[3,],col=rgb(1,0,0,0.5))
+      plot(as.Date(dat$x,origin="2015-12-31"),dat$y,pch=20,ylab="",xlab="",cex.axis=2)
+      ciEnvelope(as.Date(xseq,origin="2015-12-31"),pi.Exp[1,],pi.Exp[3,],col=rgb(0,0,1,0.5))
+      ciEnvelope(as.Date(xseq,origin="2015-12-31"),pi.LR[1,],pi.LR[3,],col=rgb(1,0,0,0.5))
       #ciEnvelope(xseq,ci.Exp[1,],ci.Exp[3,],col=rgb(0,0,1,0.2))
       #ciEnvelope(xseq,ci.LR[1,],ci.LR[3,],col=rgb(1,0,0,0.2))
       
-      points(dat$x,dat$y,pch=20)
-      lines(xseq,ci.LR[2,],col=colors()[556],lwd=2)
-      lines(xseq,ci.LR[1,],col=colors()[556],lty="dashed",lwd=2)
-      lines(xseq,ci.LR[3,],col=colors()[556],lty="dashed",lwd=2)
-      lines(xseq,ci.Exp[2,],col="blue",lwd=2)
-      lines(xseq,ci.Exp[1,],col="blue",lty="dashed",lwd=2)
-      lines(xseq,ci.Exp[3,],col="blue",lty="dashed",lwd=2)
+      points(as.Date(dat$x,origin="2015-12-31"),dat$y,pch=20)
+      lines(as.Date(xseq,origin="2015-12-31"),ci.LR[2,],col=colors()[556],lwd=2)
+      lines(as.Date(xseq,origin="2015-12-31"),ci.LR[1,],col=colors()[556],lty="dashed",lwd=2)
+      lines(as.Date(xseq,origin="2015-12-31"),ci.LR[3,],col=colors()[556],lty="dashed",lwd=2)
+      lines(as.Date(xseq,origin="2015-12-31"),ci.Exp[2,],col="blue",lwd=2)
+      lines(as.Date(xseq,origin="2015-12-31"),ci.Exp[1,],col="blue",lty="dashed",lwd=2)
+      lines(as.Date(xseq,origin="2015-12-31"),ci.Exp[3,],col="blue",lty="dashed",lwd=2)
       
     
   }
