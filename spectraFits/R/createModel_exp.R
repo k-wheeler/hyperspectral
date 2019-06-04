@@ -366,9 +366,6 @@ createModel.Exp2 <- function(data,index){
     return()
   }
 
-  print(data$max.a)
-  print(data$min.a)
-  print(inits)
   Exp.model <- "
   model{
   ##priors
