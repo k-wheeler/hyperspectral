@@ -10,15 +10,27 @@ library(doParallel)
 
 #detect cores.
 #n.cores <- detectCores()
-n.cores <- 1
+n.cores <- 8
 
 #register the cores.
 registerDoParallel(cores=n.cores)
 i=1
-trees <- c("PO3")#c("BI1","BI2","BI3","BI4","BI5") #c("BE1","BE5","PO1","PO2","PO3","PO4","PO5","BE2","BE3","BE4","PO1","BI1","BI2","BI3","BI4","BI5")
+trees <- c("BE1","BE5","PO1","PO2","PO3","PO4","PO5","BE2","BE3","BE4","PO1","BI1","BI2","BI3","BI4","BI5")
 year=2016
 output <- foreach (i=1:length(trees))%dopar%{
   load(paste(trees[i],"_",year,"_Data.RData",sep=""))
+  ind <- "CCI" #######
+  dat <- list()
+  dat$x <- data$DOY
+  dat$y <- data$SIPI #######
+  outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
+  if(!file.exists(outFileName)){
+    j.model <- createModel.Exp(data=dat,index="PRI")
+    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=10,ID=paste(ind,trees[i],sep="_"))
+    if(typeof(var.Burn)!=typeof(FALSE)){
+      save(var.Burn,file=outFileName)
+    }
+  }
 #   
 #   ind <- "GM2" #######
 #   dat <- list()
@@ -202,18 +214,18 @@ output <- foreach (i=1:length(trees))%dopar%{
 #     }
 #   }
 
-  ind <- "SIPI" #######
-  dat <- list()
-  dat$x <- data$DOY
-  dat$y <- data$SIPI #######
-  outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
-  if(!file.exists(outFileName)){
-    j.model <- createModel.Exp(data=dat,index=ind)
-    var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=10,ID=paste(ind,trees[i],sep="_"))
-    if(typeof(var.Burn)!=typeof(FALSE)){
-      save(var.Burn,file=outFileName)
-    }
-  }
+  # ind <- "SIPI" #######
+  # dat <- list()
+  # dat$x <- data$DOY
+  # dat$y <- data$SIPI #######
+  # outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
+  # if(!file.exists(outFileName)){
+  #   j.model <- createModel.Exp(data=dat,index=ind)
+  #   var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=10,ID=paste(ind,trees[i],sep="_"))
+  #   if(typeof(var.Burn)!=typeof(FALSE)){
+  #     save(var.Burn,file=outFileName)
+  #   }
+  # }
 
 #   ind <- "PRI" #######
 #   dat <- list()
