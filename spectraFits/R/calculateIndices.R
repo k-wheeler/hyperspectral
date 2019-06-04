@@ -63,6 +63,12 @@ calNDVI_M <- function(dat){
   return((NIR-R)/(NIR+R))
 }
 
+calCCI <- function(dat){
+  R11 <- mean(dat[dat$wvl<670 & dat$wvl>620,"ref"])
+  R1 <- mean(dat[dat$wvl<536 & dat$wvl>526,"ref"])
+  return((R11-R1)/(R11+R1))
+}
+
 calSIPI <- function(dat){
   R800 <- dat[dat$wvl==800,"ref"]
   R445 <- dat[dat$wvl==445,"ref"]

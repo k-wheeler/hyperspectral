@@ -389,7 +389,6 @@ createModel.Exp2 <- function(data,index){
   "
   j.model   <- jags.model(file = textConnection(Exp.model),
                           data = data,
-                          inits=inits,
                           n.chains = nchain)
   return(j.model)
 }
