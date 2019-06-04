@@ -10,7 +10,7 @@ library(doParallel)
 
 #detect cores.
 #n.cores <- detectCores()
-n.cores <- 8
+n.cores <- 15
 
 #register the cores.
 registerDoParallel(cores=n.cores)
@@ -22,7 +22,7 @@ output <- foreach (i=1:length(trees))%dopar%{
   ind <- "CCI" #######
   dat <- list()
   dat$x <- data$DOY
-  dat$y <- data$SIPI #######
+  dat$y <- data$CCI #######
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
     j.model <- createModel.Exp(data=dat,index="PRI")
