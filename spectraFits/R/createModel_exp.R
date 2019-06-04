@@ -170,9 +170,6 @@ createModel.Exp <- function(data,index,inits){
     return()
   }
 
-  print(data$max.a)
-  print(data$min.a)
-  print(inits)
   Exp.model <- "
   model{
   ##priors
@@ -193,7 +190,6 @@ createModel.Exp <- function(data,index,inits){
   "
   j.model   <- jags.model(file = textConnection(Exp.model),
                           data = data,
-                          inits=inits,
                           n.chains = nchain)
   return(j.model)
 }
@@ -209,7 +205,8 @@ createModel.Exp2 <- function(data,index){
   # data$p.a <- 1/(0.1**2)
   # data$mean.b <- 0.02
   # data$p.b <- 1/(0.005**2)
-  inits <- list()
+  print("changed")
+  #inits <- list()
   print(index)
   if(index=="PSRI" || index=="RGI" || index=="CTR" || index=="SIPI"){
     data$min.a <- 0 #0
@@ -275,9 +272,9 @@ createModel.Exp2 <- function(data,index){
   else if(index == "PRI"){
     data$mean.c <- 0.3
     data$p.c <- 1/(0.1**2)
-    for(i in 1:nchain){
-      inits[[i]] <- list(a=rnorm(1,-0.0001,0.00001),b=rnorm(1,0.075,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
-    }
+    # for(i in 1:nchain){
+    #   inits[[i]] <- list(a=rnorm(1,-0.0001,0.00001),b=rnorm(1,0.075,0.001),c=rnorm(1,mean(data$y[1:5]),0.05))
+    # }
   }
   else if(index == "GM2" || index == "RVI1"){
     data$mean.c <- 9
