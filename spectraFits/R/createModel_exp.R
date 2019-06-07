@@ -3,7 +3,7 @@ library("runjags")
 library("PhenologyBayesModeling")
 
 
-createModel.Exp <- function(data,index,inits){
+createModel.Exp <- function(data,index,inits,tree){
   nchain <- 5
   data$n <- length(data$y)
   print(data$n)
@@ -13,7 +13,32 @@ createModel.Exp <- function(data,index,inits){
   # data$p.a <- 1/(0.1**2)
   # data$mean.b <- 0.02
   # data$p.b <- 1/(0.005**2)
-  #inits <- list()
+  inits <- list()
+  if(tree=="BE1" || tree=="BE2"){
+    for(i in 1:nchain){
+      inits[[i]] <- list(c=rnorm(1,mean(dat$y[1:10]),0.05),k=rnorm(1,280,10),a=rnorm(1,-0.01,0.001),b=rnorm(1,0.04,0.005)
+    }
+  }else if(tree=="BE4"){
+    for(i in 1:nchain){
+      inits[[i]] <- list(c=rnorm(1,mean(dat$y[1:10]),0.05),k=rnorm(1,280,10),a=rnorm(1,-0.008,0.001),b=rnorm(1,0.055,0.01))
+    }
+  }else if(tree=="BI1"){
+    for(i in 1:nchain){
+      inits[[i]] <- list(c=rnorm(1,mean(dat$y[1:10]),0.05),k=rnorm(1,280,10),a=rnorm(1,-0.004,0.0005),b=rnorm(1,0.05,0.005))
+    }
+  }else if(tree=="BI4" || tree=="BI5"){
+    for(i in 1:nchain){
+      inits[[i]] <- list(c=rnorm(1,mean(dat$y[1:10]),0.05),k=rnorm(1,280,10),a=rnorm(1,-0.003,0.0005),b=rnorm(1,0.06,0.01)
+    }
+  }else if(tree=="PO1" || tree="PO3"){
+    for(i in 1:nchain){
+      inits[[i]] <- list(c=rnorm(1,mean(dat$y[1:10]),0.05),k=rnorm(1,280,10),a=rnorm(1,-0.003,0.0005),b=rnorm(1,0.055,0.01))
+    }
+  }else if(tree=="PO1" || tree="PO3" || tree="PO5"){
+    for(i in 1:nchain){
+      inits[[i]] <- list(c=rnorm(1,mean(dat$y[1:10]),0.05),k=rnorm(1,280,10),a=rnorm(1,-0.003,0.0005),b=rnorm(1,0.055,0.01))
+    }
+  }
   print(index)
   if(index=="PSRI" || index=="RGI" || index=="CTR" || index=="SIPI"){
     data$min.a <- -100 #0
@@ -190,6 +215,7 @@ createModel.Exp <- function(data,index,inits){
   "
   j.model   <- jags.model(file = textConnection(Exp.model),
                           data = data,
+                          inits = inits,
                           n.chains = nchain)
   return(j.model)
 }
