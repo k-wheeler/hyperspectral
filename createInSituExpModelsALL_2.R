@@ -10,7 +10,7 @@ library(doParallel)
 
 #detect cores.
 #n.cores <- detectCores()
-n.cores <- 15
+n.cores <- 8
 
 #register the cores.
 registerDoParallel(cores=n.cores)
@@ -25,7 +25,7 @@ output <- foreach (i=1:length(trees))%dopar%{
   dat$y <- data$CCI #######
   outFileName <- paste(trees[i],"_",year,"_",ind,"_Exp_varBurn.RData",sep="")
   if(!file.exists(outFileName)){
-    j.model <- createModel.Exp(data=dat,index="PRI")
+    j.model <- createModel.Exp(data=dat,index="PRI",tree=trees[i])
     var.Burn <- runMCMC_Model(j.model=j.model,variableNames = c("a","b","c","prec"),baseNum=50000,iterSize=50000,maxGBR=10,ID=paste(ind,trees[i],sep="_"))
     if(typeof(var.Burn)!=typeof(FALSE)){
       save(var.Burn,file=outFileName)
