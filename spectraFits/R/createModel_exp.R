@@ -16,27 +16,27 @@ createModel.Exp <- function(data,index,inits,tree){
   inits <- list()
   if(tree=="BE1" || tree=="BE2"){
     for(i in 1:nchain){
-      inits[[i]] <- list(c=rnorm(1,mean(dat$y[1:10]),0.05),k=rnorm(1,280,10),a=rnorm(1,-0.01,0.001),b=rnorm(1,0.04,0.005))
+      inits[[i]] <- list(c=rnorm(1,mean(data$y[1:10]),0.05),k=rnorm(1,280,10),a=rnorm(1,-0.01,0.001),b=rnorm(1,0.04,0.005))
     }
   }else if(tree=="BE4"){
     for(i in 1:nchain){
-      inits[[i]] <- list(c=rnorm(1,mean(dat$y[1:10]),0.05),k=rnorm(1,280,10),a=rnorm(1,-0.008,0.001),b=rnorm(1,0.055,0.01))
+      inits[[i]] <- list(c=rnorm(1,mean(data$y[1:10]),0.05),k=rnorm(1,280,10),a=rnorm(1,-0.008,0.001),b=rnorm(1,0.055,0.01))
     }
   }else if(tree=="BI1"){
     for(i in 1:nchain){
-      inits[[i]] <- list(c=rnorm(1,mean(dat$y[1:10]),0.05),k=rnorm(1,280,10),a=rnorm(1,-0.004,0.0005),b=rnorm(1,0.05,0.005))
+      inits[[i]] <- list(c=rnorm(1,mean(data$y[1:10]),0.05),k=rnorm(1,280,10),a=rnorm(1,-0.004,0.0005),b=rnorm(1,0.05,0.005))
     }
   }else if(tree=="BI4" || tree=="BI5"){
     for(i in 1:nchain){
-      inits[[i]] <- list(c=rnorm(1,mean(dat$y[1:10]),0.05),k=rnorm(1,280,10),a=rnorm(1,-0.003,0.0005),b=rnorm(1,0.06,0.01))
+      inits[[i]] <- list(c=rnorm(1,mean(data$y[1:10]),0.05),k=rnorm(1,280,10),a=rnorm(1,-0.003,0.0005),b=rnorm(1,0.06,0.01))
     }
   }else if(tree=="PO1" || tree=="PO3"){
     for(i in 1:nchain){
-      inits[[i]] <- list(c=rnorm(1,mean(dat$y[1:10]),0.05),k=rnorm(1,280,10),a=rnorm(1,-0.003,0.0005),b=rnorm(1,0.055,0.01))
+      inits[[i]] <- list(c=rnorm(1,mean(data$y[1:10]),0.05),k=rnorm(1,280,10),a=rnorm(1,-0.003,0.0005),b=rnorm(1,0.055,0.01))
     }
   }else if(tree=="PO1" || tree=="PO3" || tree=="PO5"){
     for(i in 1:nchain){
-      inits[[i]] <- list(c=rnorm(1,mean(dat$y[1:10]),0.05),k=rnorm(1,280,10),a=rnorm(1,-0.003,0.0005),b=rnorm(1,0.055,0.01))
+      inits[[i]] <- list(c=rnorm(1,mean(data$y[1:10]),0.05),k=rnorm(1,280,10),a=rnorm(1,-0.003,0.0005),b=rnorm(1,0.055,0.01))
     }
   }
   print(index)
